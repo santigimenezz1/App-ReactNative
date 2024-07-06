@@ -1,24 +1,25 @@
 import { StyleSheet } from "react-native";
+import { RFValue } from "react-native-responsive-fontsize";
 
 const styles = StyleSheet.create({
     container__tarjetaNivel:{
-        width:380,
-        height:120,
-        borderWidth:1,
+        width:"100%",
         padding:12,
         paddingLeft:20,
         borderRadius:10,
         marginTop:10,
         backgroundColor: "hsl(215, 18%, 13%)",
+        height:RFValue(95),
+
     },
     text:{
         color:"white",
-        fontSize: 35,
+        fontSize: RFValue(25), // Ajusta el tamaño de la fuente de manera responsiva
         fontWeight:"bold",
     },
     texth2:{
         color:"white",
-        fontSize: 18
+        fontSize: RFValue(14), // Ajusta el tamaño de la fuente de manera responsiva
     }
 })
 export default styles

@@ -17,9 +17,9 @@ const NavBar = () => {
                 </View>
                 <View style={styles.container__navBar__menu}>
                     <Image
-                        source={{ uri: "https://res.cloudinary.com/dcf9eqqgt/image/upload/v1720109807/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/barra-de-menus_nqoy68.png" }}
+                        source={{ uri: "https://res.cloudinary.com/dcf9eqqgt/image/upload/v1720256292/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/menu-de-hamburguesas_c0dzoc.png" }}
                         width={40}
-                        height={40}
+                        height={50}
                     />
                 </View>
             </View>

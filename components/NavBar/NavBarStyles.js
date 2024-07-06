@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { RFValue } from "react-native-responsive-fontsize";
 
 const styles = StyleSheet.create({
     container__navBar:{
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
     },
     container__navBar__titulo__text:{
         color:"white",
-        fontSize:25
+        fontSize:RFValue(22)
     }
 })
 
