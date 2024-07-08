@@ -1,10 +1,9 @@
-import { Text, View } from "react-native"
+import { View, Text } from "react-native"
 
 const DetalleNivel = () => {
     return (
         <View>
-            <Text>detalle del nivel</Text>
-            
+            <Text>Detalle del nivel</Text>
         </View>
     )
 }

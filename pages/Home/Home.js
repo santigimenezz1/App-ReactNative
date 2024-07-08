@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
           backgroundColor:"hsl(216, 13%, 8%)",
            position:"relative",
            height:"100%",
+           paddingBottom:10
            
     },
     main:{
