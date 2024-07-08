@@ -5,7 +5,7 @@ import TarjetaCalentamiento from "../../components/TarjetaCalentamiento/TarjetaC
 import TarjetaNivel from "../../components/TarjetaNivel/TarjetaNivel.jsx";
 import styles from "../../pages/Home/Home.js";
 import { RFValue } from "react-native-responsive-fontsize";
-import { useNavigation } from '@react-navigation/native';
+import TarjetaIngresoCodigo from './TarjetaIngesoCodigo/TarjetaingresoCodigo.jsx';
 
 
 const Home = ( {navigation} ) => {
@@ -14,8 +14,10 @@ const Home = ( {navigation} ) => {
     <View style={styles.container__home}>
       <NavBar />
       <ScrollView style={styles.main}>
+      <TarjetaIngresoCodigo />
+      <Text style={{fontSize: RFValue(20), color:"white",marginTop:30 }} >Encontraras el código unico en el folleto que viene con el producto</Text>
         <Text style={{fontSize: RFValue(20), color:"white" }}>Imprescindibles</Text>
-        <TarjetaCalentamiento />
+        <TarjetaCalentamiento navigation={navigation}/>
         <Text style={{fontSize: RFValue(20), color:"white",marginTop:30 }}>Ejercicios</Text>
         <TarjetaNivel nivel={"Nivel 1"} tiempo={"30:25"} navigation={navigation} />
         <TarjetaNivel nivel={"Nivel 2"} tiempo={"41:35"} navigation={navigation}/>

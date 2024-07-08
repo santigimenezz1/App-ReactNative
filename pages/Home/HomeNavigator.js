@@ -1,13 +1,23 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../Home/Home.jsx'; // Ajusta la ruta si es necesario
-import DetalleNivel from '../DetalleNivel/DetalleNivel.jsx'; // Ajusta la ruta si es necesario
+import DetalleNivel from './DetalleNivel/DetalleNivel.jsx'
+import DetalleCalientamiento from '../DetalleCalentamiento/DetalleCalentamiento.jsx';
 
 const Stack = createStackNavigator();
 
-const HomeNavigator = ({nivel}) => {
+const HomeNavigator = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator 
+    screenOptions={{
+        headerStyle: {
+          backgroundColor: "hsl(215, 18%, 13%)",
+          height:120
+        },
+        headerTintColor: '#fff', // Color del texto del encabezado
+
+    }}
+>
       <Stack.Screen 
         name="Home" 
         component={Home} 
@@ -17,6 +27,12 @@ const HomeNavigator = ({nivel}) => {
         name="DetalleNivel" 
         component={DetalleNivel} 
         options={{ title: 'Detalle del NivelASD' }} 
+      />
+
+<Stack.Screen 
+        name="DetalleCalentamiento" 
+        component={DetalleCalientamiento} 
+        options={{ title: 'Calentamiento/Enfriamiento' }} 
       />
     </Stack.Navigator>
   );
