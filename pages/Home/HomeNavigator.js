@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../Home/Home.jsx'; // Ajusta la ruta si es necesario
 import DetalleNivel from './DetalleNivel/DetalleNivel.jsx'
 import DetalleCalientamiento from './DetalleCalentamiento/DetalleCalentamiento.jsx';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 const Stack = createStackNavigator();
 
@@ -14,7 +15,13 @@ const HomeNavigator = () => {
           backgroundColor: "hsl(215, 18%, 13%)",
           height:130
         },
-        headerTintColor: '#fff', // Color del texto del encabezado
+        headerTitleStyle: {
+          fontSize: RFValue(25),
+          fontFamily: 'NunitoSans_400Regular',
+          letterSpacing:2
+        },
+        headerTintColor: '#fff',
+        // Color del texto del encabezado
     }}
 >
       <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />

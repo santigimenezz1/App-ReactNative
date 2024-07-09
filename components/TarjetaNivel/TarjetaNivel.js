@@ -20,10 +20,24 @@ const styles = StyleSheet.create({
         color:"white",
         fontSize: RFValue(25), // Ajusta el tamaño de la fuente de manera responsiva
         fontWeight:"bold",
+        letterSpacing:1,
+        fontFamily: 'NunitoSans_400Regular'
     },
     texth2:{
         color:"white",
-        fontSize: RFValue(14), // Ajusta el tamaño de la fuente de manera responsiva
+        fontSize: RFValue(14),
+        fontFamily: 'NunitoSans_400Regular',
+        letterSpacing:1
+         // Ajusta el tamaño de la fuente de manera responsiva
+    },
+    container__candado:{
+        display:"flex",
+        alignItems:"center",
+        gap:3
+    },
+    text__bloqueado:{
+        color:"white",
+        fontFamily: 'NunitoSans_400Regular'
     }
 })
 export default styles

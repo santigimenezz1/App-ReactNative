@@ -16,10 +16,17 @@ const styles = StyleSheet.create({
         color:"white",
         fontSize: RFValue(20), // Ajusta el tamaño de la fuente de manera responsiva
         fontWeight:"bold",
+        fontFamily: 'NunitoSans_700Bold',
+        letterSpacing:1
+
     },
     texth2:{
         color:"white",
-        fontSize: RFValue(18), // Ajusta el tamaño de la fuente de manera responsiva
+        fontSize: RFValue(15),
+        fontFamily: 'NunitoSans_400Regular',
+        letterSpacing:1
+
+         // Ajusta el tamaño de la fuente de manera responsiva
     }
 })
 export default styles

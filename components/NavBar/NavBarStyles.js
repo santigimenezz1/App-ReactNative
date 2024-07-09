@@ -16,10 +16,13 @@ const styles = StyleSheet.create({
      width:"50%",
      gap:10,
      alignItems:"center",
+   
     },
     container__navBar__titulo__text:{
         color:"white",
-        fontSize:RFValue(22)
+        fontSize:RFValue(18),
+        fontFamily: 'NunitoSans_400Regular',
+        letterSpacing:2
     }
 })
 

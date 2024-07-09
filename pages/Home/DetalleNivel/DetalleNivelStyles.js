@@ -5,11 +5,12 @@ const styles = StyleSheet.create({
         backgroundColor: "hsl(210, 16%, 7%)",
     },
     contentContainer: {
-        paddingTop: 20, // Espacio en la parte superior
+        paddingTop: 50, // Espacio en la parte superior
         paddingBottom: 20, // Espacio en la parte inferior
-        paddingHorizontal: 10, // Mantener el padding horizontal
         display: "flex",
         gap: 8,
+        paddingHorizontal:30
+
     }
 });
 

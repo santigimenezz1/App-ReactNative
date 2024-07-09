@@ -11,7 +11,10 @@ const styles = StyleSheet.create({
         height: RFValue(40),
         borderRadius:12,
         color:"white",
-        paddingLeft:10
+        paddingLeft:10,
+        fontFamily: 'NunitoSans_400Regular',
+        letterSpacing:2
+
     },
     button:{
         display:"flex",
@@ -20,7 +23,7 @@ const styles = StyleSheet.create({
         backgroundColor:"hsl(161, 51%, 35%)",
         padding:8,
         borderRadius:22,
-        width:120
+        width:120,
     },
   
     container:{

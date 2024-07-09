@@ -14,15 +14,29 @@ const styles = StyleSheet.create({
         height:RFValue(80),
         borderWidth:1,
         borderColor:"hsl(161, 51%, 35%)",
-
+        display:"flex",
+        flexDirection:"row",
+        alignItems:"center",
+        justifyContent:"space-between",
+    },
+    container__bloqueado:{
+      display:"flex",
+      justifyContent:"center",
+      alignContent:"center",
+      gap:3 
     },
     text:{
         color:"white",
         fontSize: RFValue(20), // Ajusta el tamaño de la fuente de manera responsiva
         fontWeight:"bold",
+        fontFamily: 'NunitoSans_400Regular',
+        letterSpacing:1.7
+
     },
     texth2:{
         color:"white",
+        fontFamily: 'NunitoSans_400Regular',
+        letterSpacing:1,
         fontSize: RFValue(12), // Ajusta el tamaño de la fuente de manera responsiva
     }
 })

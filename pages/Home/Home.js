@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         padding:10
     },
     contentContainer:{
-        paddingBottom:15
+        paddingBottom:60
     }
  
 

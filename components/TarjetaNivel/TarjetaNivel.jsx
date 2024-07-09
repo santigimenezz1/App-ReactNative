@@ -8,8 +8,9 @@ const TarjetaNivel = ( {nivel, tiempo, navigation} ) => {
             <Text style={styles.text}>{nivel}</Text>
             <Text style={styles.texth2}>{tiempo}</Text>
             </View>
-            <View>
-            <Image width={30} height={30} source={{uri:"https://res.cloudinary.com/dcf9eqqgt/image/upload/v1720478069/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/cerrar_qrawqr.png"}}></Image>
+            <View style={styles.container__candado}>
+            <Image width={22} height={22} source={{uri:"https://res.cloudinary.com/dcf9eqqgt/image/upload/v1720478069/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/cerrar_qrawqr.png"}}></Image>
+            <Text style={styles.text__bloqueado}>Bloqueado</Text>
             </View>
         </Pressable>
 
