@@ -1,12 +1,12 @@
-import { Button, Text, TouchableOpacity, View } from "react-native"
+import { Button, Image, Text, TouchableOpacity, View } from "react-native"
 import { TextInput } from "react-native-gesture-handler"
 import styles from "./TarjetaIngresoCodigoStyles"
 
 const TarjetaIngresoCodigo = () => {
     return (
         <View style={styles.container}>
-            <TextInput placeholder="codigo" style={styles.input}
-  />
+            <Image width={25} height={30} source={{uri:"https://res.cloudinary.com/dcf9eqqgt/image/upload/v1720473576/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/contrasena_ddqgg9.png"}}></Image>
+            <TextInput placeholder="Codigo" placeholderTextColor="hsl(0, 0%, 74%)" style={styles.input}/>
             <TouchableOpacity style={styles.button}>
                 <Text style={{color:"white", fontWeight:"bold"}}>Continuar</Text>
                 </TouchableOpacity>

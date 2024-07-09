@@ -7,7 +7,8 @@ const styles = StyleSheet.create({
         color:"red",
         borderWidth:2,
         borderColor:"hsl(161, 51%, 35%)",
-        width: RFValue(220),
+        width: RFValue(120),
+        height: RFValue(40),
         borderRadius:12,
         color:"white",
         paddingLeft:10
@@ -18,16 +19,18 @@ const styles = StyleSheet.create({
         alignItems:"center",
         backgroundColor:"hsl(161, 51%, 35%)",
         padding:8,
-        borderRadius:12,
+        borderRadius:22,
+        width:120
     },
   
     container:{
         width:"100%",
         display:"flex",
         flexDirection:"row",
+        justifyContent:"center",
+        alignItems:"center",
         gap:10,
-        padding:10
-       
+        padding:10,      
     }
 })
 export default styles

@@ -13,9 +13,9 @@ const Home = ( {navigation} ) => {
   return (
     <View style={styles.container__home}>
       <NavBar />
-      <ScrollView style={styles.main}>
+      <ScrollView style={styles.main} contentContainerStyle={styles.contentContainer}>
       <TarjetaIngresoCodigo />
-      <Text style={{fontSize: RFValue(20), color:"white",marginTop:30 }} >Encontraras el código unico en el folleto que viene con el producto</Text>
+      <Text style={{fontSize: RFValue(18), color:"white",marginTop:30, marginBottom:40, textAlign:"center" }} >Encontraras el código unico en el folleto que viene con el producto</Text>
         <Text style={{fontSize: RFValue(20), color:"white" }}>Imprescindibles</Text>
         <TarjetaCalentamiento navigation={navigation}/>
         <Text style={{fontSize: RFValue(20), color:"white",marginTop:30 }}>Ejercicios</Text>

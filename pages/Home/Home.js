@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
           backgroundColor:"hsl(216, 13%, 8%)",
            position:"relative",
            height:"100%",
-           paddingBottom:10
            
     },
     main:{
@@ -23,7 +22,9 @@ const styles = StyleSheet.create({
         width:"100%",
         display:"flex",
         padding:10
-        
+    },
+    contentContainer:{
+        paddingBottom:15
     }
  
 

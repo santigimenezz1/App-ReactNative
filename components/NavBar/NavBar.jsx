@@ -10,16 +10,16 @@ const NavBar = () => {
                 <View style={styles.container__navBar__titulo}>
                     <Image
                         source={{ uri: "https://res.cloudinary.com/dcf9eqqgt/image/upload/v1720109354/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/futbol-americano_shzkr2.png" }}
-                        width={30}
-                        height={30}
+                        width={25}
+                        height={25}
                     />
                     <Text style={styles.container__navBar__titulo__text}>EJERCICIOS</Text>
                 </View>
                 <View style={styles.container__navBar__menu}>
                     <Image
-                        source={{ uri: "https://res.cloudinary.com/dcf9eqqgt/image/upload/v1720256292/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/menu-de-hamburguesas_c0dzoc.png" }}
-                        width={40}
-                        height={50}
+                        source={{ uri: "https://res.cloudinary.com/dcf9eqqgt/image/upload/v1720483415/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/mundo_u3lsbt.png" }}
+                        width={30}
+                        height={30}
                     />
                 </View>
             </View>

@@ -10,6 +10,10 @@ const styles = StyleSheet.create({
         marginTop:10,
         backgroundColor: "hsl(215, 18%, 13%)",
         height:RFValue(95),
+        display:"flex",
+        flexDirection:"row",
+        justifyContent:"space-between",
+        alignItems:"center"
 
     },
     text:{
