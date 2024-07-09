@@ -13,13 +13,13 @@ const styles = StyleSheet.create({
         display:"flex",
         flexDirection:"row",
         justifyContent:"space-between",
-        alignItems:"center"
+        alignItems:"center",
+        fontFamily: 'NunitoSans_400Regular',
 
     },
     text:{
         color:"white",
         fontSize: RFValue(25), // Ajusta el tamaño de la fuente de manera responsiva
-        fontWeight:"bold",
         letterSpacing:1,
         fontFamily: 'NunitoSans_400Regular'
     },
