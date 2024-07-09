@@ -22,6 +22,8 @@ const Home = ( {navigation} ) => {
         <TarjetaNivel nivel={"Nivel 1"} tiempo={"30:25"} navigation={navigation} />
         <TarjetaNivel nivel={"Nivel 2"} tiempo={"41:35"} navigation={navigation}/>
         <TarjetaNivel nivel={"Nivel 3"} tiempo={"52:06"} navigation={navigation}/>
+        <TarjetaNivel nivel={"Nivel Avanzado"} tiempo={"52:06"} navigation={navigation}/>
+        <TarjetaNivel nivel={"Retos"} tiempo={"52:06"} navigation={navigation}/>
       </ScrollView>
     </View>
   );

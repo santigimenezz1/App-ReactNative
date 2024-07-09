@@ -19,6 +19,23 @@ const DetalleNivel = () => {
             contentContainerStyle={styles.contentContainer}
         >
 <TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+
 
 
         </ScrollView>
