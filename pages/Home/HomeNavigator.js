@@ -4,6 +4,7 @@ import Home from '../Home/Home.jsx'; // Ajusta la ruta si es necesario
 import DetalleNivel from './DetalleNivel/DetalleNivel.jsx'
 import DetalleCalientamiento from './DetalleCalentamiento/DetalleCalentamiento.jsx';
 import { RFValue } from 'react-native-responsive-fontsize';
+import DetalleNivelVideo from './DetalleNivel/DetalleNivelVideo/DetalleNivelVideo.jsx';
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,8 @@ const HomeNavigator = () => {
       <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Stack.Screen name="DetalleNivel" component={DetalleNivel} options={{ title: 'Detalle del NivelASD' }} />
       <Stack.Screen name="DetalleCalentamiento" component={DetalleCalientamiento} options={{ title: 'Calentamiento/Enfriamiento' }} />
+      <Stack.Screen name="DetalleNivelVideo" component={DetalleNivelVideo} options={{ title: 'Detalle nivel video' }} />
+
     </Stack.Navigator>
   );
 }
