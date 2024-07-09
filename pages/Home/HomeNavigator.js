@@ -9,6 +9,7 @@ import DetalleNivelVideo from './DetalleNivel/DetalleNivelVideo/DetalleNivelVide
 const Stack = createStackNavigator();
 
 
+
 const HomeNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{
