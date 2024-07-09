@@ -2,9 +2,9 @@ import React from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import PerfilScreen from './screens/PerfilScreen';
-import Home from './pages/Home/Home.jsx';
 import HomeNavigator from './pages/Home/HomeNavigator.js'
+import Estadisticas from './pages/Estadisticas/Estadisticas.jsx';
+import Perfil from './pages/Perfil/Perfil.jsx';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,8 +19,8 @@ function MyTabs() { //Funcion para crear la barra de navegacion y las distintas 
           //SE CREAN LOS BOTONES PARA CAMBIAR A LAS DISTINTAS PANTALLAS. EN EL HOME COMO QUIERO AGREGAR OTRA NAVEGACION, SE LA PASO AQUI Y LUEGO EN EL COMPONENTE DE ESA NAVEGACION DEFINO CUALES VAN A SER LAS PANTALLAS QUE SE VAN A MOSTAR
     >
       <Tab.Screen name="Ejercicios" component={HomeNavigator} /> 
-      <Tab.Screen name="Estadisticas" component={PerfilScreen} />
-      <Tab.Screen name="Perfil" component={PerfilScreen} />
+      <Tab.Screen name="Estadisticas" component={Estadisticas} />
+      <Tab.Screen name="Perfil" component={Perfil} />
     </Tab.Navigator>
   );
 }

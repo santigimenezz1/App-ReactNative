@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../Home/Home.jsx'; // Ajusta la ruta si es necesario
 import DetalleNivel from './DetalleNivel/DetalleNivel.jsx'
-import DetalleCalientamiento from '../DetalleCalentamiento/DetalleCalentamiento.jsx';
+import DetalleCalientamiento from './DetalleCalentamiento/DetalleCalentamiento.jsx';
 
 const Stack = createStackNavigator();
 

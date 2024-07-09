@@ -1,6 +1,6 @@
 import { Pressable, Text, View} from "react-native"
 import styles from "./TarjetaCalentamientoStyles"
-import DetalleCalientamiento from "../../pages/DetalleCalentamiento/DetalleCalentamiento"
+import DetalleCalientamiento from "../../pages/Home/DetalleCalentamiento/DetalleCalentamiento"
 
 const TarjetaCalentamiento = ( {navigation} ) => {
     return (
