@@ -7,6 +7,10 @@ import Estadisticas from './pages/Estadisticas/Estadisticas.jsx';
 import Perfil from './pages/Perfil/Perfil.jsx';
 import AppLoading from 'expo-app-loading';
 import { useFonts, NunitoSans_400Regular, NunitoSans_700Bold } from '@expo-google-fonts/nunito-sans';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Text } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,9 +28,48 @@ function MyTabs() {
         },
       }}
     >
-      <Tab.Screen name="Ejercicios" component={HomeNavigator} />
-      <Tab.Screen name="Estadisticas" component={Estadisticas} />
-      <Tab.Screen name="Perfil" component={Perfil} />
+      <Tab.Screen name="Ejercicios" component={HomeNavigator} options={{
+        tabBarIcon : () => <FontAwesome5 name="play" size={20} color="white" />,
+        tabBarLabel: () => (
+          <Text style={{ 
+            color: 'white', 
+            fontSize: 12, 
+            fontFamily: 'NunitoSans_400Regular',
+            letterSpacing:1
+          }}>
+            Ejercicios
+          </Text>
+        ),
+        
+      }} />
+      <Tab.Screen name="Estadisticas" component={Estadisticas} options={{
+        tabBarIcon: () => <MaterialCommunityIcons name="home" size={26} color="white" />,
+        tabBarLabel: () => (
+          <Text style={{ 
+            color: 'white', 
+            fontSize: 12, 
+            fontFamily: 'NunitoSans_400Regular',
+            letterSpacing:1
+
+          }}>
+            Estadisticas
+          </Text>
+        ),
+      }} />
+      <Tab.Screen name="Perfil" component={Perfil} options={{
+        tabBarIcon: () =><Octicons name="person-fill" size={26} color="white" />,
+        tabBarLabel: () => (
+          <Text style={{ 
+            color: 'white', 
+            fontSize: 12, 
+            fontFamily: 'NunitoSans_400Regular',
+            letterSpacing:1
+
+          }}>
+            Perfil
+          </Text>
+        ),
+      }} />
     </Tab.Navigator>
   );
 }
