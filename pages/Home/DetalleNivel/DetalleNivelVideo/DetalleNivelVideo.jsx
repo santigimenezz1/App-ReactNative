@@ -1,6 +1,8 @@
 import { Video } from "expo-av"
-import { Button, Image, View } from "react-native"
+import { Button, Image, TouchableOpacity, View } from "react-native"
 import { Text } from "react-native-paper"
+import { FontAwesome } from '@expo/vector-icons';
+
 
 const DetalleNivelVideo = () => {
     return (
@@ -24,10 +26,16 @@ const DetalleNivelVideo = () => {
                         style={{marginTop:10}}
                     />
                     </View>
-                    <View style={{marginTop:20}}>
-                        <Button 
-                          title="Siguiente Nivel">
-                        </Button>
+                    <View style={{marginTop:20, display:"flex", flexDirection:"row", alignItems:"center", gap:12}}>
+                        <TouchableOpacity>
+                        <FontAwesome name="arrow-left" size={28} color="white" />
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{borderWidth:1,borderColor:"white", width:220, height:40, borderRadius:7, display:"flex", justifyContent:"center", alignItems:"center", backgroundColor: "hsl(215, 18%, 13%)",}}> 
+                         <Text style={{color:"white", textAlign:"center",letterSpacing:1,fontFamily: 'NunitoSans_400Regular',}}>Volver a los Ejercicios</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                        <FontAwesome name="arrow-right" size={28} color="white" />
+                        </TouchableOpacity>
                     </View>
             </View>
         </View>
