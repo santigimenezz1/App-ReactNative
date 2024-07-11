@@ -12,6 +12,7 @@ const Stack = createStackNavigator();
 
 const HomeNavigator = () => {
   return (
+    
     <Stack.Navigator screenOptions={{
           headerStyle: {
           backgroundColor: "hsl(215, 18%, 13%)",
@@ -30,7 +31,6 @@ const HomeNavigator = () => {
       <Stack.Screen name="DetalleNivel" component={DetalleNivel} options={{ title: 'Detalle del NivelASD' }} />
       <Stack.Screen name="DetalleCalentamiento" component={DetalleCalientamiento} options={{ title: 'Calentamiento/Enfriamiento' }} />
       <Stack.Screen name="DetalleNivelVideo" component={DetalleNivelVideo} options={{ title: 'Detalle nivel video' }} />
-
     </Stack.Navigator>
   );
 }

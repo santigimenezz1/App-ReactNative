@@ -1,15 +1,15 @@
 import { Pressable, Text, View } from "react-native"
 import styles from "./BotonLoginUsuario"
 
-const BotonLoginUsuario = () => {
+const BotonLoginUsuario = ( {navigation} ) => {
     return (
         <View style={styles.container__botonesRegistro}>
-        <Pressable style={styles.botonRegistroUsuario}>
+        <Pressable onPress={()=>navigation.navigate("Registro")} style={styles.botonRegistroUsuario}>
             <Text style={styles.botonText}>
                 Registrarse
             </Text>
         </Pressable>
-        <Pressable style={styles.botonLoginUsuario}>
+        <Pressable onPress={()=>navigation.navigate("InicioSesion")} style={styles.botonLoginUsuario}>
             <Text style={styles.botonText}>
                 Iniciar sesión
             </Text>
