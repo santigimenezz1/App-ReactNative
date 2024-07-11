@@ -2,12 +2,8 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container__tarjetaPerfil:{
-        width:"100%",
-        height:600, 
-        position:"relative", 
-        display:"flex",
-        alignItems:"center",
-        justifyContent:"center" 
+        borderWidth:1,
+        borderColor:"red"
     },
     container__info:{
         width:"100%",
