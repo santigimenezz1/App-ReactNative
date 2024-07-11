@@ -11,6 +11,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Text } from 'react-native';
+import LoginUsuarios from './pages/LoginUsuarios/LoginUsuarios.jsx';
 
 const Tab = createBottomTabNavigator();
 
@@ -54,6 +55,21 @@ function MyTabs() {
 
           }}>
             Perfil
+          </Text>
+        ),
+      }} />
+
+
+<Tab.Screen name="Login" component={LoginUsuarios} options={{
+        tabBarIcon: () =><Octicons name="person-fill" size={26} color="white" />,
+        tabBarLabel: () => (
+          <Text style={{ 
+            color: 'white', 
+            fontSize: 12, 
+            fontFamily: 'NunitoSans_400Regular',
+            letterSpacing:1
+          }}>
+            Login
           </Text>
         ),
       }} />

@@ -6,8 +6,7 @@ const styles = StyleSheet.create({
          alignItems:"center",
           backgroundColor:"hsl(216, 13%, 8%)",
            position:"relative",
-           height:"100%",
-           
+           height:"100%",  
     },
     main:{
         width:"95%",
