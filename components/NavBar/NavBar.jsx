@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './NavBarStyles';
+import SelectorIdioma from '../SelectorIdioma/SelectorIdioma.jsx';
 
 const NavBar = () => {
+
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container__navBar}>

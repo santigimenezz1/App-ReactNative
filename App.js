@@ -42,20 +42,7 @@ function MyTabs() {
         ),
         
       }} />
-      <Tab.Screen name="Estadisticas" component={Estadisticas} options={{
-        tabBarIcon: () => <MaterialCommunityIcons name="home" size={26} color="white" />,
-        tabBarLabel: () => (
-          <Text style={{ 
-            color: 'white', 
-            fontSize: 12, 
-            fontFamily: 'NunitoSans_400Regular',
-            letterSpacing:1
-
-          }}>
-            Estadisticas
-          </Text>
-        ),
-      }} />
+     
       <Tab.Screen name="Perfil" component={Perfil} options={{
         tabBarIcon: () =><Octicons name="person-fill" size={26} color="white" />,
         tabBarLabel: () => (
