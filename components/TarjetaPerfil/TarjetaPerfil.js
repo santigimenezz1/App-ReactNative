@@ -2,8 +2,6 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container__tarjetaPerfil:{
-        borderWidth:1,
-        borderColor:"red",
         width:"100%",
         height:600, 
         position:"relative", 
@@ -15,8 +13,6 @@ const styles = StyleSheet.create({
         width:"100%",
         height:400,
         position:"absolute",
-        borderWidth:6,
-        borderColor:"green",
         zIndex:2,
     }
 })
