@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TextInput, Pressable, Image } from 'react-native';
 import styles from './RegistroStyles';
 
-const Registro = () => {
+const Registro = ( {navigation} ) => {
   return (
     <View style={styles.container__inicioSesion}>
       <View style={styles.container__form}>
@@ -11,7 +11,7 @@ const Registro = () => {
         <TextInput style={styles.input} placeholderTextColor={"white"} placeholder='Repetir contraseña'></TextInput>
 
         <View style={styles.container__form}>
-        <Pressable style={styles.botonLoginUsuario}>
+        <Pressable onPress={()=>navigation.navigate("Crear Perfil")} style={styles.botonLoginUsuario}>
             <Text style={styles.botonText}>
                 Registrar
             </Text>
