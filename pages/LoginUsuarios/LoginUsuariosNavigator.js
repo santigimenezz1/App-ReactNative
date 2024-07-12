@@ -15,10 +15,8 @@ const LoginUsuarioNavigator = () => {
                 <Stack.Screen name="principal" component={LoginUsuarios} options={{ headerShown: false }}/>
                 <Stack.Screen name="InicioSesion" component={InicioSesion} />
                 <Stack.Screen name="Registro" component={Registro} />
-
             </Stack.Navigator>
         </View>
     );
 }
-
 export default LoginUsuarioNavigator;
