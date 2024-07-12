@@ -74,7 +74,7 @@ function MyTabs() {
 }
 
 export default function App() {
-  const [estado, setEstado] = useState(true); // Mover useState aquí
+  const [estado, setEstado] = useState(false); // Mover useState aquí
   let [fontsLoaded] = useFonts({
     NunitoSans_400Regular,
     NunitoSans_700Bold,

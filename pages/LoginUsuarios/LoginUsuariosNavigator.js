@@ -11,6 +11,7 @@ import CargarImagen from "./CargarImagen/CargarImagen.jsx";
 const Stack = createStackNavigator();
 
 const LoginUsuarioNavigator = () => {
+    
     return (
         <View style={{ flex: 1 }}>
             <Stack.Navigator screenOptions={{
