@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TextInput, Pressable, Image } from 'react-native';
 import styles from './InicioSesion';
 
-const InicioSesion = () => {
+const InicioSesion = ( {setEstado} ) => {
   return (
     <View style={styles.container__inicioSesion}>
       <View style={styles.container__form}>

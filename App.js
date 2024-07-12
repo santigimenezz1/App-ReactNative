@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -9,7 +9,7 @@ import { useFonts, NunitoSans_400Regular, NunitoSans_700Bold } from '@expo-googl
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import LoginUsuarioNavigator from './pages/LoginUsuarios/LoginUsuariosNavigator.js';
 
 const Tab = createBottomTabNavigator();
@@ -40,7 +40,6 @@ function MyTabs() {
             Ejercicios
           </Text>
         ),
-        
       }} />
      
       <Tab.Screen name="Perfil" component={Perfil} options={{
@@ -51,15 +50,13 @@ function MyTabs() {
             fontSize: 12, 
             fontFamily: 'NunitoSans_400Regular',
             letterSpacing:1
-
           }}>
             Perfil
           </Text>
         ),
       }} />
 
-
-<Tab.Screen name="Login" component={LoginUsuarioNavigator} options={{
+      <Tab.Screen name="Login" component={LoginUsuarioNavigator} options={{
         tabBarIcon: () =><Octicons name="person-fill" size={26} color="white" />,
         tabBarLabel: () => (
           <Text style={{ 
@@ -77,6 +74,7 @@ function MyTabs() {
 }
 
 export default function App() {
+  const [estado, setEstado] = useState(true); // Mover useState aquí
   let [fontsLoaded] = useFonts({
     NunitoSans_400Regular,
     NunitoSans_700Bold,
@@ -84,11 +82,20 @@ export default function App() {
 
   if (!fontsLoaded) {
     return <AppLoading />;
-  } else {
+  }
+
+  if(!estado){
     return (
       <NavigationContainer>
         <MyTabs />
       </NavigationContainer>
     );
+  }else{
+    return (
+      <NavigationContainer>
+        <LoginUsuarioNavigator />
+      </NavigationContainer>
+    );
   }
+
 }
