@@ -14,17 +14,26 @@ import { db } from '../../firebaseConfig.js';
 const Home = ( {navigation} ) => {
   const [niveles, setNiveles] = useState([])
 
-
-
+ //CUANDO RENDERIZA LA APP HACE LA PETICION Y TRAE TODOS LOS DATOS DE LA COLECCION NIVELES
+  useEffect(()=>{
     const obtenerNiveles = async () => {
-      const productColeccion =  collection(db, "niveles")
-      const niveles = await getDocs(productColeccion)
-      setNiveles([niveles])
+      try { //AQUI ME TRAIGO LA COLECCION CON TODOS LOS DOCUMENTOS
+        const nivelesCollection = collection(db, "niveles");
+        const querySnapshot = await getDocs(nivelesCollection);
+        let arreglo = []
+        // Iterar sobre los documentos y actualizar el estado niveles
+        querySnapshot.forEach((doc) => {
+          arreglo = [...arreglo, { id: doc.id, data: doc.data() }]
+        });
+        setNiveles(arreglo)
+      } catch (error) {
+        console.error("Error obteniendo documentos: ", error);
+      }
     }
+    obtenerNiveles()
+  },[])
 
 
-
-    console.log(niveles)
   return (
     <View style={styles.container__home}>
       <NavBar />
@@ -32,16 +41,24 @@ const Home = ( {navigation} ) => {
       <TarjetaIngresoCodigo />
       <Text style={{fontSize: RFValue(18), color:"white",marginTop:30, marginBottom:40, textAlign:"center",fontFamily: 'NunitoSans_400Regular', letterSpacing:0.7 }} >Encontraras el código unico en el folleto que viene con el producto</Text>
         <Text style={{fontSize: RFValue(20), color:"white", fontFamily: 'NunitoSans_400Regular', }}>Imprescindibles</Text>
-        <TarjetaCalentamiento navigation={navigation}/>
+        {
+            niveles.length > 0 &&
+            niveles.filter((nivel)=>nivel.data.nombre === "Calentamiento/Enfriamiento")
+            .map((nivel)=>(
+              <TarjetaCalentamiento tiempo={nivel.data.tiempoTotal} nivel={nivel.data.nombre} navigation={navigation}/>
+              ))
+           }
         <Text style={{fontSize: RFValue(20), color:"white",marginTop:30, fontFamily: 'NunitoSans_400Regular' }}>Ejercicios</Text>
-        <TarjetaNivel nivel={"Nivel 1"} tiempo={"30:25"} navigation={navigation} />
-        <TarjetaNivel nivel={"Nivel 2"} tiempo={"41:35"} navigation={navigation}/>
-        <TarjetaNivel nivel={"Nivel 3"} tiempo={"52:06"} navigation={navigation}/>
-        <TarjetaNivel nivel={"Nivel Avanzado"} tiempo={"52:06"} navigation={navigation}/>
-        <TarjetaNivel nivel={"Retos"} tiempo={"52:06"} navigation={navigation}/>
+           {
+            niveles.length > 0 &&
+            niveles.filter((nivel)=>nivel.data.nombre !== "Calentamiento/Enfriamiento")
+            .map((nivel)=>(
+              <TarjetaNivel navigation={navigation} nivel={nivel.data.nombre} tiempo={nivel.data.tiempoTotal} />
+            ))
+           }
         <View style={{marginTop:30}}>
         <TarjetaConsejos />
-        <Pressable onPress={()=>obtenerNiveles()}>
+        <Pressable onPress={()=>obtenerNiveles(db)}>
            <Text style={{color:"white"}}>probandooo</Text>
         </Pressable>
         </View>
