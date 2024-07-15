@@ -1,10 +1,10 @@
 import { Image, Pressable, Text, View } from "react-native"
 import styles from './TarjetaNivelDetalleStyles.js'
 
-const TarjetaNivelDetalle = ( {nivel, tiempo, navigation} ) => {
+const TarjetaNivelDetalle = ( {nivel, tiempo, navigation, ejercicio} ) => {
     return (
         <View style={styles.container__tarjetaNivelDetalle}>
-        <Pressable onPress={()=>navigation.navigate("DetalleNivelVideo")} style={styles.container__tarjetaNivel}>
+        <Pressable onPress={()=>navigation.navigate("DetalleNivelVideo", {ejercicio})} style={styles.container__tarjetaNivel}>
             <View>
             <Text style={styles.text}>{nivel}</Text>
             <Text style={styles.texth2}>{tiempo}</Text>

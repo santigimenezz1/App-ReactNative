@@ -21,7 +21,7 @@ const DetalleNivel = () => {
             {
                 data &&
                 data.data.ejercicios.map((ejercicio)=>(
-            <TarjetaNivelDetalle nivel={ejercicio.nombre} tiempo={"15:35"} navigation={navigation} />
+            <TarjetaNivelDetalle ejercicio={ejercicio} nivel={ejercicio.nombre} tiempo={"15:35"} navigation={navigation} />
                 ))
 
             }
