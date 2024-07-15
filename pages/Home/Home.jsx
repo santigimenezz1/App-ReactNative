@@ -44,7 +44,7 @@ const Home = ( {navigation} ) => {
             niveles.length > 0 &&
             niveles.filter((nivel)=>nivel.data.nombre === "Calentamiento/Enfriamiento")
             .map((nivel)=>(
-              <TarjetaCalentamiento tiempo={nivel.data.tiempoTotal} nivel={nivel.data.nombre} navigation={navigation}/>
+              <TarjetaCalentamiento data={nivel} navigation={navigation} nivel={nivel.data.nombre} tiempo={nivel.data.tiempoTotal}/>
               ))
            }
         <Text style={{fontSize: RFValue(20), color:"white",marginTop:30, fontFamily: 'NunitoSans_400Regular' }}>Ejercicios</Text>
