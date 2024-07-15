@@ -6,7 +6,7 @@ import niveles from "../../niveles.js"
 import { useState } from "react"
 
 
-const TarjetaNivel = ( {nivel, tiempo, navigation} ) => {
+const TarjetaNivel = ( {data, nivel, tiempo, navigation} ) => {
     const [estado, setEstado] = useState()
 
     //FUNCION PARA AGREGAR LOS NIVELES A LA BASE DE DATOS EN FIREBASE
@@ -19,7 +19,7 @@ const TarjetaNivel = ( {nivel, tiempo, navigation} ) => {
  
     return ( //AQUI LE DIGO QUE ME ENVIE A LA PANTALLA DETALLENIVEL Y ADEMAS LE PASO EL USEPARAMS ()
         <View>
-        <Pressable onPress={()=>navigation.navigate("DetalleNivel", {nivel})} style={styles.container__tarjetaNivel}>
+        <Pressable onPress={()=>navigation.navigate("DetalleNivel", {nivel, data})} style={styles.container__tarjetaNivel}>
             <View>
             <Text style={styles.text}>{nivel}</Text>
             <Text style={styles.texth2}>{tiempo} min</Text>

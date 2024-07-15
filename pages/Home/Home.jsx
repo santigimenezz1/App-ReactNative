@@ -33,7 +33,6 @@ const Home = ( {navigation} ) => {
     obtenerNiveles()
   },[])
 
-
   return (
     <View style={styles.container__home}>
       <NavBar />
@@ -53,7 +52,7 @@ const Home = ( {navigation} ) => {
             niveles.length > 0 &&
             niveles.filter((nivel)=>nivel.data.nombre !== "Calentamiento/Enfriamiento")
             .map((nivel)=>(
-              <TarjetaNivel navigation={navigation} nivel={nivel.data.nombre} tiempo={nivel.data.tiempoTotal} />
+              <TarjetaNivel data={nivel} navigation={navigation} nivel={nivel.data.nombre} tiempo={nivel.data.tiempoTotal} />
             ))
            }
         <View style={{marginTop:30}}>

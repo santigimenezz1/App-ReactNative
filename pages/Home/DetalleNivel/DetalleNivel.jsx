@@ -8,7 +8,7 @@ const DetalleNivel = () => {
 
     const navigation = useNavigation();
     const route = useRoute(); //  usamos useRoute para acceder a los parámetros pasados a la pantalla (el nivel)
-    const { nivel } = route.params; 
+    const { nivel, data } = route.params; 
 
     useEffect(() => {
         navigation.setOptions({ title: nivel });
@@ -18,26 +18,13 @@ const DetalleNivel = () => {
             style={styles.container__detalleNivel} 
             contentContainerStyle={styles.contentContainer}
         >
-<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
-<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
-<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
-<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
-<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
-<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
-<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
-<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
-<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
-<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
-<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
-<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
-<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
-<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
-<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
-<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
-<TarjetaNivelDetalle nivel={"Step overs 2"} tiempo={"15:35"} navigation={navigation} />
+            {
+                data &&
+                data.data.ejercicios.map((ejercicio)=>(
+            <TarjetaNivelDetalle nivel={ejercicio.nombre} tiempo={"15:35"} navigation={navigation} />
+                ))
 
-
-
+            }
         </ScrollView>
     );
 };
