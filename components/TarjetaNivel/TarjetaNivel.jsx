@@ -1,23 +1,27 @@
 import { Image, Pressable, Text, View } from "react-native"
 import styles from "../TarjetaNivel/TarjetaNivel.js"
-import { addDoc, collection } from 'firebase/firestore'
+import { addDoc, collection, getDoc } from 'firebase/firestore'
 import { db } from "../../firebaseConfig.js"
+import niveles from "../../niveles.js"
+import { useState } from "react"
 
 
 const TarjetaNivel = ( {nivel, tiempo, navigation} ) => {
-    const test = (navigation) => {
+    const [estado, setEstado] = useState()
+
+
+    //FUNCION PARA AGREGAR LOS NIVELES A LA BASE DE DATOS EN FIREBASE
+    const test = (navigation, niveles) => {
           //AÑADIMOS EL DOCUMENTO A UNA COLECCION, ESPECIFICO LA BASE DE DATOS Y EL NOMBRE DE LA COLLECCION, LUEGO EL OBJETO QUE QUIERO AGREGAR A ESA COLECCION.
-        addDoc(collection(db, "nueva_coleccion"), {
-            campo1: "valor1",
-            campo2: "valor2"
-          });        
+          niveles.map((nivel)=>(
+              addDoc(collection(db, "niveles"), nivel)        
+          ))
           navigation.navigate("DetalleNivel", {nivel})
     }
-
-   
+ 
     return ( //AQUI LE DIGO QUE ME ENVIE A LA PANTALLA DETALLENIVEL Y ADEMAS LE PASO EL USEPARAMS ()
         <View>
-        <Pressable onPress={()=>test(navigation)} style={styles.container__tarjetaNivel}>
+        <Pressable onPress={()=>navigation.navigate("DetalleNivel", {nivel})} style={styles.container__tarjetaNivel}>
             <View>
             <Text style={styles.text}>{nivel}</Text>
             <Text style={styles.texth2}>{tiempo}</Text>

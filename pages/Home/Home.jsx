@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Pressable, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import NavBar from "../../components/NavBar/NavBar";
 import TarjetaCalentamiento from "../../components/TarjetaCalentamiento/TarjetaCalentamiento";
@@ -7,10 +7,24 @@ import styles from "../../pages/Home/Home.js";
 import { RFValue } from "react-native-responsive-fontsize";
 import TarjetaIngresoCodigo from './TarjetaIngesoCodigo/TarjetaingresoCodigo.jsx';
 import TarjetaConsejos from '../../components/TarjetaConsejos/TarjetaConsejos.jsx';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../firebaseConfig.js';
 
 
 const Home = ( {navigation} ) => {
+  const [niveles, setNiveles] = useState([])
 
+
+
+    const obtenerNiveles = async () => {
+      const productColeccion =  collection(db, "niveles")
+      const niveles = await getDocs(productColeccion)
+      setNiveles([niveles])
+    }
+
+
+
+    console.log(niveles)
   return (
     <View style={styles.container__home}>
       <NavBar />
@@ -27,6 +41,9 @@ const Home = ( {navigation} ) => {
         <TarjetaNivel nivel={"Retos"} tiempo={"52:06"} navigation={navigation}/>
         <View style={{marginTop:30}}>
         <TarjetaConsejos />
+        <Pressable onPress={()=>obtenerNiveles()}>
+           <Text style={{color:"white"}}>probandooo</Text>
+        </Pressable>
         </View>
       </ScrollView>
     </View>
