@@ -1,7 +1,12 @@
 import { Pressable, Text, TextInput, View } from "react-native"
 import styles from "./CrearPerfil.js"
+import { useRoute } from "@react-navigation/native";
 
 const CrearPerfil = ( {navigation} ) => {
+    const route = useRoute(); //  usamos useRoute para acceder a los parámetros pasados a la pantalla (el nivel)
+    const {usuarioRegisto} = route.params; 
+
+    console.log({usuarioRegisto})
     return (
         <View style={styles.container__crearPerfil}>
             <View style={styles.container__input}>

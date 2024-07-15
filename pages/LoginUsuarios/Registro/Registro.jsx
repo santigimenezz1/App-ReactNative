@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, Pressable, Image } from 'react-native';
 import styles from './RegistroStyles';
 
 const Registro = ( {navigation} ) => {
+  const [usuarioRegisto, setUsuarioRegistro] = useState({
+    name:"",
+    password: "",
+    repeatPassword: ""
+  })
+
+  const EnviarRegistroUsuario = () => {
+    console.log(usuarioRegisto)
+    navigation.navigate("Crear Perfil", {usuarioRegisto})  
+  }
   return (
     <View style={styles.container__inicioSesion}>
       <View style={styles.container__form}>
-        <TextInput style={styles.input} placeholderTextColor={"white"} placeholder='Email'></TextInput>
-        <TextInput style={styles.input} placeholderTextColor={"white"} placeholder='Contraseña'></TextInput>
-        <TextInput style={styles.input} placeholderTextColor={"white"} placeholder='Repetir contraseña'></TextInput>
+        <TextInput onChangeText={(text)=>setUsuarioRegistro({...usuarioRegisto, name: text})} style={styles.input} placeholderTextColor={"white"} placeholder='Email'></TextInput>
+        <TextInput onChangeText={(text)=>setUsuarioRegistro({...usuarioRegisto, password: text})} style={styles.input} placeholderTextColor={"white"} placeholder='Password'></TextInput>
+        <TextInput onChangeText={(text)=>setUsuarioRegistro({...usuarioRegisto, repeatPassword: text})} style={styles.input} placeholderTextColor={"white"} placeholder='Repeat password'></TextInput>
 
         <View style={styles.container__form}>
-        <Pressable onPress={()=>navigation.navigate("Crear Perfil")} style={styles.botonLoginUsuario}>
+        <Pressable onPress={()=>EnviarRegistroUsuario()} style={styles.botonLoginUsuario}>
             <Text style={styles.botonText}>
                 Registrar
             </Text>

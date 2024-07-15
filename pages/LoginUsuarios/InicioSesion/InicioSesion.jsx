@@ -6,7 +6,6 @@ const InicioSesion = () => {
   const [valueEmail, setValueEmail] = useState("")
   const [valuePassword, setValuePassword] = useState("")
 
-
    const EnviarUsuario = () => {
     const user = {
       email: valueEmail,
@@ -15,8 +14,7 @@ const InicioSesion = () => {
     console.log(user)
    }
 
-
-
+   
   return (
     <View style={styles.container__inicioSesion}>
       <View style={styles.container__form}>
