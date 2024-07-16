@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Pressable, ScrollView, Text, View } from "react-native";
 import NavBar from "../../components/NavBar/NavBar";
 import TarjetaCalentamiento from "../../components/TarjetaCalentamiento/TarjetaCalentamiento";
@@ -8,6 +8,7 @@ import TarjetaIngresoCodigo from './TarjetaIngesoCodigo/TarjetaingresoCodigo.jsx
 import TarjetaConsejos from '../../components/TarjetaConsejos/TarjetaConsejos.jsx';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebaseConfig.js';
+import { CartContext } from '../../Context/Context.jsx';
 
 const Home = ({ navigation }) => {
   const [niveles, setNiveles] = useState([]);
@@ -28,6 +29,7 @@ const Home = ({ navigation }) => {
     };
     obtenerNiveles();
   }, []);
+
 
   return (
     <View style={styles.home}>

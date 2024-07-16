@@ -1,7 +1,12 @@
 const { View, Text, Image, Pressable } = require("react-native")
+import { useContext } from "react";
+import { CartContext } from "../../../Context/Context";
 import styles from "./CargarImagen"
 
 const CargarImagen = () => {
+    const { test, setTest } = useContext(CartContext);
+
+    console.log(`este es el text en pantalla cargar imagen ${test}`)
  return (
     <View style={styles.container__cargarImagen}>
         <View style={styles.container__imagen}>

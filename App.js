@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
@@ -8,9 +9,9 @@ import AppLoading from 'expo-app-loading';
 import { useFonts, NunitoSans_400Regular, NunitoSans_700Bold } from '@expo-google-fonts/nunito-sans';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { Text, View } from 'react-native';
+import { Text } from 'react-native';
 import LoginUsuarioNavigator from './pages/LoginUsuarios/LoginUsuariosNavigator.js';
+import GlobalContext from './Context/Context.jsx';
 
 const Tab = createBottomTabNavigator();
 
@@ -29,13 +30,13 @@ function MyTabs() {
       }}
     >
       <Tab.Screen name="Ejercicios" component={HomeNavigator} options={{
-        tabBarIcon : () => <FontAwesome5 name="play" size={20} color="white" />,
+        tabBarIcon: () => <FontAwesome5 name="play" size={20} color="white" />,
         tabBarLabel: () => (
           <Text style={{ 
             color: 'white', 
             fontSize: 12, 
             fontFamily: 'NunitoSans_400Regular',
-            letterSpacing:1
+            letterSpacing: 1
           }}>
             Ejercicios
           </Text>
@@ -43,13 +44,13 @@ function MyTabs() {
       }} />
      
       <Tab.Screen name="Perfil" component={Perfil} options={{
-        tabBarIcon: () =><Octicons name="person-fill" size={26} color="white" />,
+        tabBarIcon: () => <Octicons name="person-fill" size={26} color="white" />,
         tabBarLabel: () => (
           <Text style={{ 
             color: 'white', 
             fontSize: 12, 
             fontFamily: 'NunitoSans_400Regular',
-            letterSpacing:1
+            letterSpacing: 1
           }}>
             Perfil
           </Text>
@@ -57,13 +58,13 @@ function MyTabs() {
       }} />
 
       <Tab.Screen name="Login" component={LoginUsuarioNavigator} options={{
-        tabBarIcon: () =><Octicons name="person-fill" size={26} color="white" />,
+        tabBarIcon: () => <Octicons name="person-fill" size={26} color="white" />,
         tabBarLabel: () => (
           <Text style={{ 
             color: 'white', 
             fontSize: 12, 
             fontFamily: 'NunitoSans_400Regular',
-            letterSpacing:1
+            letterSpacing: 1
           }}>
             Login
           </Text>
@@ -74,7 +75,7 @@ function MyTabs() {
 }
 
 export default function App() {
-  const [estado, setEstado] = useState(false); // Mover useState aquí
+  const [estado, setEstado] = useState(false); 
   
   let [fontsLoaded] = useFonts({
     NunitoSans_400Regular,
@@ -85,18 +86,16 @@ export default function App() {
     return <AppLoading />;
   }
 
-  if(!estado){
-    return (
+  return (
+    <GlobalContext>
       <NavigationContainer>
-        <MyTabs />
+        {estado ? (
+          <LoginUsuarioNavigator />
+        ) : (
+          <MyTabs />
+        )}
       </NavigationContainer>
-    );
-  }else{
-    return (
-      <NavigationContainer>
-        <LoginUsuarioNavigator />
-      </NavigationContainer>
-    );
-  }
-
+    </GlobalContext>
+  );
 }
+
