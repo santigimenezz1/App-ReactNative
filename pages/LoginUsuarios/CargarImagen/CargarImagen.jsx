@@ -20,11 +20,6 @@ const CargarImagen = ({navigation}) => {
             addDoc(userColecction, userRegistro)
             alert("USUARIO CREADO")
     }
-
-
-
-
-
    let openImagePicker = async () => {
    let resultadoPermisos = true
    if(resultadoPermisos.granted === false) {
