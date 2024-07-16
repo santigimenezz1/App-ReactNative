@@ -1,24 +1,41 @@
 const { View, Text, Image, Pressable } = require("react-native")
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../../Context/Context";
 import styles from "./CargarImagen"
+import * as ImagePicker from 'expo-image-picker';
+
 
 const CargarImagen = () => {
-    const { test, setTest } = useContext(CartContext);
+    const { userRegistro, setUserRegistro } = useContext(CartContext);
+    const [imagen, setImagen] = useState()
 
-    console.log(`este es el text en pantalla cargar imagen ${test}`)
+   let openImagePicker = async () => {
+   let resultadoPermisos = true
+   if(resultadoPermisos.granted === false) {
+    alert("permisos necesarios para acceder a la camara")
+    return
+   } else{
+    let abrirGaleria = await ImagePicker.launchImageLibraryAsync()
+    if(abrirGaleria.canceled === true){
+        return;
+    } else{
+        let uri = abrirGaleria.assets[0].uri
+        setImagen(uri) 
+    }
+   }
+    }
+    console.log(userRegistro)
  return (
     <View style={styles.container__cargarImagen}>
         <View style={styles.container__imagen}>
-            <Image style={styles.imagen}  height={300} width={200} source={{uri:"https://res.cloudinary.com/dcf9eqqgt/image/upload/v1720798272/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/kide.php_sqosp3.png"}}></Image>
+            <Image style={styles.imagen}  height={300} width={200} source={{uri:imagen}}></Image>
         </View>
         <Pressable style={styles.botonCargar}>
-                <Text style={styles.text}>Cargar</Text>
+                <Text onPress={()=>openImagePicker()} style={styles.text}>Cargar</Text>
             </Pressable>
             <Pressable style={styles.botonOmitir}>
                 <Text style={styles.text}>Omitir</Text>
             </Pressable>
-
     </View>
  )
 }

@@ -5,8 +5,8 @@ import { useContext, useState } from "react";
 import { CartContext } from "../../../Context/Context.jsx";
 
 const CrearPerfil = ( {navigation} ) => {
-    const { test, setTest } = useContext(CartContext);
-    const [usuarioRegisto, setUsuarioRegistro] = useState({
+    const { userRegistro, setUserRegistro } = useContext(CartContext);
+    const [data, setData] = useState({
         nombre: "",
         pais: "",
         numeroCamiseta: "",
@@ -15,33 +15,29 @@ const CrearPerfil = ( {navigation} ) => {
       });
 
       const EnviarRegistroUsuario = () => {
-        setTest(
+        setUserRegistro(
           {
-            ...test,
-            nombre: usuarioRegisto.nombre,
-            pais: usuarioRegisto.pais,
-            numeroCamiseta: usuarioRegisto.numeroCamiseta,
-            pisicion: usuarioRegisto.posicion,
-            clubFavorito: usuarioRegisto.clubFavorito
+            ...userRegistro,
+            nombre: data.nombre,
+            pais: data.pais,
+            numeroCamiseta: data.numeroCamiseta,
+            pisicion: data.posicion,
+            clubFavorito: data.clubFavorito
           }
     
         )
-        navigation.navigate("Cargar imagen", { usuarioRegisto });
+        navigation.navigate("Cargar imagen");
       };
     
-
-    const route = useRoute(); //  usamos useRoute para acceder a los parámetros pasados a la pantalla (el nivel)
-
-
-    console.log({test})
+    console.log(userRegistro)
     return (
         <View style={styles.container__crearPerfil}>
             <View style={styles.container__input}>
-            <TextInput onChangeText={(text)=>setUsuarioRegistro({...usuarioRegisto, nombre: text})} style={styles.input} placeholderTextColor="white" placeholder="Nombre"></TextInput>
-            <TextInput onChangeText={(text)=>setUsuarioRegistro({...usuarioRegisto, pais: text})} style={styles.input} placeholderTextColor="white" placeholder="Pais"></TextInput>
-            <TextInput onChangeText={(text)=>setUsuarioRegistro({...usuarioRegisto, numeroCamiseta: text})}style={styles.input} placeholderTextColor="white" placeholder="Numero de camiseta"></TextInput>
-            <TextInput onChangeText={(text)=>setUsuarioRegistro({...usuarioRegisto, posicion: text})} style={styles.input} placeholderTextColor="white" placeholder="Posición"></TextInput>
-            <TextInput onChangeText={(text)=>setUsuarioRegistro({...usuarioRegisto, clubFavorito: text})} style={styles.input} placeholderTextColor="white" placeholder="Club favorito"></TextInput>
+            <TextInput onChangeText={(text)=>setData({...data, nombre: text})} style={styles.input} placeholderTextColor="white" placeholder="Nombre"></TextInput>
+            <TextInput onChangeText={(text)=>setData({...data, pais: text})} style={styles.input} placeholderTextColor="white" placeholder="Pais"></TextInput>
+            <TextInput onChangeText={(text)=>setData({...data, numeroCamiseta: text})}style={styles.input} placeholderTextColor="white" placeholder="Numero de camiseta"></TextInput>
+            <TextInput onChangeText={(text)=>setData({...data, posicion: text})} style={styles.input} placeholderTextColor="white" placeholder="Posición"></TextInput>
+            <TextInput onChangeText={(text)=>setData({...data, clubFavorito: text})} style={styles.input} placeholderTextColor="white" placeholder="Club favorito"></TextInput>
             </View>
             <Pressable onPress={()=>EnviarRegistroUsuario()} style={styles.botonCrearPerfil}>
                 <Text style={styles.text}>Continuar</Text>

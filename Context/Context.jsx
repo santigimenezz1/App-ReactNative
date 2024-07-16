@@ -5,7 +5,7 @@ export const CartContext = createContext(); // Se crea el contexto global
 
 // Creamos el componente que va a utilizar el contexto global
 const GlobalContext = ({ children }) => {
-    const [test, setTest] = useState({
+    const [userRegistro, setUserRegistro] = useState({
       email: "",
       password: "",
       nombre: "",
@@ -17,8 +17,8 @@ const GlobalContext = ({ children }) => {
     });
 
     const data = {
-        test,
-        setTest
+        userRegistro,
+        setUserRegistro
     };
 
     return (

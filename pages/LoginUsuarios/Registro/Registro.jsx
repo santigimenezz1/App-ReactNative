@@ -5,35 +5,31 @@ import styles from './RegistroStyles';
 import { CartContext } from '../../../Context/Context';
 
 const Registro = ({ navigation }) => {
-  const [usuarioRegisto, setUsuarioRegistro] = useState({
-    name: "",
-    password: "",
-    repeatPassword: ""
+  const { userRegistro, setUserRegistro } = useContext(CartContext);
+
+  const [data, setData] = useState({
+    email: "",
+    password: ""
   });
 
-  const { test, setTest } = useContext(CartContext);
-
   const EnviarRegistroUsuario = () => {
-    setTest(
+    setUserRegistro(
       {
-        ...test,
-        email: usuarioRegisto.name,
-        password: usuarioRegisto.password,
-        nombre: usuarioRegisto.name
+        ...userRegistro,
+        email: data.email,
+        password: data.password,
       }
-
     )
-    navigation.navigate("Crear Perfil", { usuarioRegisto });
+    navigation.navigate("Crear Perfil");
   };
 
-  console.log(test);
 
   return (
     <View style={styles.container__inicioSesion}>
       <View style={styles.container__form}>
-        <TextInput onChangeText={(text) => setUsuarioRegistro({ ...usuarioRegisto, name: text })} style={styles.input} placeholderTextColor={"white"} placeholder='Email' />
-        <TextInput onChangeText={(text) => setUsuarioRegistro({ ...usuarioRegisto, password: text })} style={styles.input} placeholderTextColor={"white"} placeholder='Password' />
-        <TextInput onChangeText={(text) => setUsuarioRegistro({ ...usuarioRegisto, repeatPassword: text })} style={styles.input} placeholderTextColor={"white"} placeholder='Repeat password' />
+        <TextInput onChangeText={(text) => setData({ ...data, email: text })} style={styles.input} placeholderTextColor={"white"} placeholder='Email' />
+        <TextInput onChangeText={(text) => setData({ ...data, password: text })} style={styles.input} placeholderTextColor={"white"} placeholder='Password' />
+        <TextInput  style={styles.input} placeholderTextColor={"white"} placeholder='Repeat password' />
 
         <View style={styles.container__form}>
           <Pressable onPress={() => EnviarRegistroUsuario()} style={styles.botonLoginUsuario}>
