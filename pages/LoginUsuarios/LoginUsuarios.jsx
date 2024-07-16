@@ -2,6 +2,7 @@ import { Image, View } from "react-native"
 import styles from "./LoginUsuarios.js"
 import BotonLoginUsuario from "../../components/BotonLoginUsuario/BotonLoginUsuario.jsx"
 
+
 const LoginUsuarios = ( {navigation} ) => {
     return (
         <View style={styles.container__loginUsuarios}>

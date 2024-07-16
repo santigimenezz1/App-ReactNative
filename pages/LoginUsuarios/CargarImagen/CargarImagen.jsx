@@ -3,11 +3,32 @@ import { useContext, useState } from "react";
 import { CartContext } from "../../../Context/Context";
 import styles from "./CargarImagen"
 import * as ImagePicker from 'expo-image-picker';
+import { Button } from "react-native-paper";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../../firebaseConfig";
 
 
-const CargarImagen = () => {
+const CargarImagen = ({navigation}) => {
     const { userRegistro, setUserRegistro } = useContext(CartContext);
     const [imagen, setImagen] = useState()
+
+    const crearUsuario =  () => {
+        try{
+            let userColecction = collection(db, "usuarios")
+            addDoc(userColecction, userRegistro)
+            alert("USUARIO CREADO")
+            navigation.navigate("Home")
+            
+
+        }
+        catch{
+            console.log(err)
+        }
+    }
+
+
+
+
 
    let openImagePicker = async () => {
    let resultadoPermisos = true
@@ -36,6 +57,7 @@ const CargarImagen = () => {
             <Pressable style={styles.botonOmitir}>
                 <Text style={styles.text}>Omitir</Text>
             </Pressable>
+            <Button textColor="white" onPress={()=>crearUsuario()}>Crear usuario</Button>
     </View>
  )
 }

@@ -5,6 +5,13 @@ import 'firebase/firestore'
 import { getFirestore } from "firebase/firestore";
 import 'firebase/storage';
 
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
+} from "firebase/auth";
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -24,3 +31,25 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app); //REFERENCIA A LA BASE DE DATOS 
 const analytics = getAnalytics(app);
+export const auth = getAuth(app);
+
+export const login = async ( email, password ) => {
+  try{
+    let res = await signInWithEmailAndPassword(auth, email, password);
+    console.log("usuario creado con exito")
+  }
+  catch(error){
+    alert(error)
+  }
+};
+
+export const create = async (email, password, navig ) => {
+  try {
+  const res = await createUserWithEmailAndPassword(auth, email, password)
+  .then((res)=>console.log("cuenta creada con exito"))
+  .then(()=>navig.navigate("Crear Perfil"))
+  } catch (error) {
+    alert(error)
+}
+
+}

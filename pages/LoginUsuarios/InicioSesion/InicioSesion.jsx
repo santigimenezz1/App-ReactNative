@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, Pressable, Image } from 'react-native';
 import styles from './InicioSesion';
+import {login} from '../../../firebaseConfig.js'
 
 const InicioSesion = () => {
   const [valueEmail, setValueEmail] = useState("")
@@ -14,14 +15,13 @@ const InicioSesion = () => {
     console.log(user)
    }
 
-   
   return (
     <View style={styles.container__inicioSesion}>
       <View style={styles.container__form}>
         <TextInput  onChangeText={(text)=>setValueEmail(text)} style={styles.input} placeholderTextColor={"white"} placeholder='Email'></TextInput>
         <TextInput  onChangeText={(text)=>setValuePassword(text)} style={styles.input} placeholderTextColor={"white"} placeholder='Contraseña'></TextInput>
         <View style={styles.container__form}>
-        <Pressable onPress={()=>EnviarUsuario()}  style={styles.botonLoginUsuario}>
+        <Pressable onPress={()=>login(valueEmail, valuePassword)}  style={styles.botonLoginUsuario}>
             <Text style={styles.botonText}>
                 Iniciar sesión
             </Text>

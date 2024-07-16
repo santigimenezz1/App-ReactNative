@@ -4,6 +4,7 @@ import { useRoute } from "@react-navigation/native";
 import { useContext, useState } from "react";
 import { CartContext } from "../../../Context/Context.jsx";
 
+
 const CrearPerfil = ( {navigation} ) => {
     const { userRegistro, setUserRegistro } = useContext(CartContext);
     const [data, setData] = useState({
@@ -21,10 +22,9 @@ const CrearPerfil = ( {navigation} ) => {
             nombre: data.nombre,
             pais: data.pais,
             numeroCamiseta: data.numeroCamiseta,
-            pisicion: data.posicion,
+            posicion: data.posicion,
             clubFavorito: data.clubFavorito
           }
-    
         )
         navigation.navigate("Cargar imagen");
       };
