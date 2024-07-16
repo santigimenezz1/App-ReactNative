@@ -1,5 +1,4 @@
-// App.js
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -11,7 +10,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { Text } from 'react-native';
 import LoginUsuarioNavigator from './pages/LoginUsuarios/LoginUsuariosNavigator.js';
-import GlobalContext from './Context/Context.jsx';
+import GlobalContext, { CartContext } from './Context/Context.jsx';
 
 const Tab = createBottomTabNavigator();
 
@@ -56,27 +55,12 @@ function MyTabs() {
           </Text>
         ),
       }} />
-
-      <Tab.Screen name="Login" component={LoginUsuarioNavigator} options={{
-        tabBarIcon: () => <Octicons name="person-fill" size={26} color="white" />,
-        tabBarLabel: () => (
-          <Text style={{ 
-            color: 'white', 
-            fontSize: 12, 
-            fontFamily: 'NunitoSans_400Regular',
-            letterSpacing: 1
-          }}>
-            Login
-          </Text>
-        ),
-      }} />
+     
     </Tab.Navigator>
   );
 }
 
 export default function App() {
-  const [estado, setEstado] = useState(false); 
-  
   let [fontsLoaded] = useFonts({
     NunitoSans_400Regular,
     NunitoSans_700Bold,
@@ -89,13 +73,18 @@ export default function App() {
   return (
     <GlobalContext>
       <NavigationContainer>
-        {estado ? (
-          <LoginUsuarioNavigator />
-        ) : (
-          <MyTabs />
-        )}
+        <MainComponent />
       </NavigationContainer>
     </GlobalContext>
   );
 }
 
+function MainComponent() {
+  const { usuarioOn } = useContext(CartContext);
+
+  return (
+    <>
+      {usuarioOn ? <MyTabs /> :  <LoginUsuarioNavigator/> }
+    </>
+  );
+}

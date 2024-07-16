@@ -15,10 +15,13 @@ const GlobalContext = ({ children }) => {
       clubFavorito: "",
       imagenPerfil: ""
     });
+    const [usuarioOn, setUsuarioOn] = useState(false)
 
     const data = {
         userRegistro,
-        setUserRegistro
+        setUserRegistro,
+        usuarioOn,
+        setUsuarioOn
     };
 
     return (

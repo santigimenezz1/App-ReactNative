@@ -11,6 +11,8 @@ import {
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
 } from "firebase/auth";
+import { useContext } from "react";
+import { CartContext } from "./Context/Context";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -33,10 +35,13 @@ export const db = getFirestore(app); //REFERENCIA A LA BASE DE DATOS
 const analytics = getAnalytics(app);
 export const auth = getAuth(app);
 
-export const login = async ( email, password ) => {
+
+export const login = async ( email, password, setUsuarioOn ) => {
   try{
     let res = await signInWithEmailAndPassword(auth, email, password);
     console.log("usuario creado con exito")
+    setUsuarioOn(true)
+    
   }
   catch(error){
     alert(error)

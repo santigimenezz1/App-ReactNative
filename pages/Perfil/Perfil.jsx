@@ -1,8 +1,12 @@
 import { Pressable, Text, View } from "react-native"
 import TarjetaPerfil from "../../components/TarjetaPerfil/TarjetaPerfil.jsx"
 import NavBar from "../../components/NavBar/NavBar.jsx"
+import { useContext } from "react"
+import { CartContext } from "../../Context/Context.jsx"
 
 const Perfil = () => {
+  const {setUsuarioOn} = useContext(CartContext)
+
     return (
         <View style={{width:"100%", height:"100%",backgroundColor:"hsl(216, 13%, 8%)", padding:20}}>
                   <NavBar />
@@ -10,7 +14,7 @@ const Perfil = () => {
             <TarjetaPerfil />
                   </View>
                   <View style={{marginTop:10, width:"100%", display:"flex", justifyContent:"center", alignItems:"center"}}>
-                  <Pressable style={{borderWidth:1, backgroundColor:"red", borderColor:"red", width:150, borderRadius:4, height:35, display:"flex", justifyContent:"center", alignItems:"center"}} >
+                  <Pressable onPress={()=>setUsuarioOn(false)} style={{borderWidth:1, backgroundColor:"red", borderColor:"red", width:150, borderRadius:4, height:35, display:"flex", justifyContent:"center", alignItems:"center"}} >
                     <Text style={{color:"white", fontFamily:"NunitoSans_700Bold", letterSpacing:1}}>Cerrar sesión</Text>
                   </Pressable>
                   </View>

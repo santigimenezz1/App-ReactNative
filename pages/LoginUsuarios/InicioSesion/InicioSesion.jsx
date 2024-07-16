@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, TextInput, Pressable, Image } from 'react-native';
 import styles from './InicioSesion';
 import {login} from '../../../firebaseConfig.js'
+import { CartContext } from '../../../Context/Context.jsx';
 
 const InicioSesion = () => {
   const [valueEmail, setValueEmail] = useState("")
   const [valuePassword, setValuePassword] = useState("")
+  const {setUsuarioOn} = useContext(CartContext)
 
    const EnviarUsuario = () => {
     const user = {
@@ -21,7 +23,7 @@ const InicioSesion = () => {
         <TextInput  onChangeText={(text)=>setValueEmail(text)} style={styles.input} placeholderTextColor={"white"} placeholder='Email'></TextInput>
         <TextInput  onChangeText={(text)=>setValuePassword(text)} style={styles.input} placeholderTextColor={"white"} placeholder='Contraseña'></TextInput>
         <View style={styles.container__form}>
-        <Pressable onPress={()=>login(valueEmail, valuePassword)}  style={styles.botonLoginUsuario}>
+        <Pressable onPress={()=>login(valueEmail, valuePassword, setUsuarioOn)}  style={styles.botonLoginUsuario}>
             <Text style={styles.botonText}>
                 Iniciar sesión
             </Text>
