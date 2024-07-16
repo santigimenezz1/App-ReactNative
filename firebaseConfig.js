@@ -39,20 +39,18 @@ export const auth = getAuth(app);
 export const login = async ( email, password, setUsuarioOn ) => {
   try{
     let res = await signInWithEmailAndPassword(auth, email, password);
-    console.log("usuario creado con exito")
+    alert("INGRESO EXITOSO")
     setUsuarioOn(true)
-    
   }
   catch(error){
     alert(error)
   }
 };
 
-export const create = async (email, password, navig ) => {
+export const create = async (email, password) => {
   try {
   const res = await createUserWithEmailAndPassword(auth, email, password)
   .then((res)=>console.log("cuenta creada con exito"))
-  .then(()=>navig.navigate("Crear Perfil"))
   } catch (error) {
     alert(error)
 }

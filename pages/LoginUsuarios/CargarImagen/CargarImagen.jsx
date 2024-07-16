@@ -5,25 +5,20 @@ import styles from "./CargarImagen"
 import * as ImagePicker from 'expo-image-picker';
 import { Button } from "react-native-paper";
 import { addDoc, collection } from "firebase/firestore";
-import { db } from "../../../firebaseConfig";
+import { create, db, login } from "../../../firebaseConfig";
 
 
 const CargarImagen = ({navigation}) => {
-    const { userRegistro, setUserRegistro } = useContext(CartContext);
+    const { userRegistro, setUserRegistro, setUsuarioOn } = useContext(CartContext);
     const [imagen, setImagen] = useState()
+    const navig = navigation
 
-    const crearUsuario =  () => {
-        try{
+    const crearUsuario = async  () => {
+            await create(userRegistro.email, userRegistro.password); // Espera a que create termine
+            await login(userRegistro.email, userRegistro.password, setUsuarioOn)
             let userColecction = collection(db, "usuarios")
             addDoc(userColecction, userRegistro)
             alert("USUARIO CREADO")
-            navigation.navigate("Home")
-            
-
-        }
-        catch{
-            console.log(err)
-        }
     }
 
 

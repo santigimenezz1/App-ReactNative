@@ -2,11 +2,9 @@ import React, { useContext, useState } from 'react';
 import { View, Text, TextInput, Pressable, Image } from 'react-native';
 import styles from './RegistroStyles';
 import { CartContext } from '../../../Context/Context';
-import { create } from '../../../firebaseConfig.js';
 
 const Registro = ({ navigation }) => {
   const { userRegistro, setUserRegistro } = useContext(CartContext);
-  const navig = navigation
 
   const [data, setData] = useState({
     email: "",
@@ -14,12 +12,12 @@ const Registro = ({ navigation }) => {
   });
 
   const EnviarRegistroUsuario = async () => {
-       await create(data.email, data.password, navig); // Espera a que create termine
     await setUserRegistro({
         ...userRegistro,
         email: data.email,
         password: data.password,
       });  
+      navigation.navigate("Crear Perfil")
   
   };
 
