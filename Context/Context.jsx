@@ -13,15 +13,19 @@ const GlobalContext = ({ children }) => {
       numeroCamiseta: "",
       posicion: "",
       clubFavorito: "",
-      imagenPerfil: ""
+      imagenPerfil: "",
+      codigoAcceso: "BLC2831"
     });
     const [usuarioOn, setUsuarioOn] = useState(false)
+    const [closed, setClosed] = useState(false)
 
     const data = {
         userRegistro,
         setUserRegistro,
         usuarioOn,
-        setUsuarioOn
+        setUsuarioOn,
+        closed,
+        setClosed
     };
 
     return (

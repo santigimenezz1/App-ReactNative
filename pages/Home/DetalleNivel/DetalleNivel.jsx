@@ -10,6 +10,7 @@ const DetalleNivel = () => {
     const route = useRoute(); //  usamos useRoute para acceder a los parámetros pasados a la pantalla (el nivel)
     const { nivel, data } = route.params; 
 
+
     useEffect(() => {
         navigation.setOptions({ title: nivel });
     }, [navigation, nivel]);

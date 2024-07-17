@@ -12,6 +12,8 @@ import { CartContext } from '../../Context/Context.jsx';
 
 const Home = ({ navigation }) => {
   const [niveles, setNiveles] = useState([]);
+  const {closed, setClosed, userRegistro} = useContext(CartContext)
+
 
   useEffect(() => {
     const obtenerNiveles = async () => {
@@ -35,7 +37,10 @@ const Home = ({ navigation }) => {
     <View style={styles.home}>
       <NavBar />
       <ScrollView style={styles.home__main} contentContainerStyle={styles.home__contentContainer}>
+        {
+          !closed &&
         <TarjetaIngresoCodigo />
+        }
         <Text style={styles.home__introText}>Encontraras el código único en el folleto que viene con el producto</Text>
         <Text style={styles.home__sectionTitle}>Imprescindibles</Text>
         {niveles.length > 0 &&
