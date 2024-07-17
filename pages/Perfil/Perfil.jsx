@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react"
 import { CartContext } from "../../Context/Context.jsx"
 import { Query, addDoc, collection, doc, getDoc, getDocs, query, where } from 'firebase/firestore'
 import { db } from "../../firebaseConfig.js"
+import BotonVentana from "../../components/BotonVentana/BotonVentana.jsx"
 
 
 const Perfil = () => {

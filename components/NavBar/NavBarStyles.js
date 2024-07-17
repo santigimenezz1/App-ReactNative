@@ -23,6 +23,9 @@ const styles = StyleSheet.create({
         fontSize:RFValue(18),
         fontFamily: 'NunitoSans_400Regular',
         letterSpacing:2
+    },
+    container__navBar__menu:{
+      
     }
 })
 

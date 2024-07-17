@@ -18,7 +18,6 @@ const CargarImagen = ({navigation}) => {
             await login(userRegistro.email, userRegistro.password, setUsuarioOn)
             let userColecction = collection(db, "usuarios")
             addDoc(userColecction, userRegistro)
-            alert("USUARIO CREADO")
     }
    let openImagePicker = async () => {
    let resultadoPermisos = true

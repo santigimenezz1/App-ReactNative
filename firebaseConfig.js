@@ -39,7 +39,6 @@ export const auth = getAuth(app);
 export const login = async ( email, password, setUsuarioOn ) => {
   try{
     let res = await signInWithEmailAndPassword(auth, email, password);
-    alert("INGRESO EXITOSO")
     setUsuarioOn(true)
   }
   catch(error){
@@ -50,7 +49,6 @@ export const login = async ( email, password, setUsuarioOn ) => {
 export const create = async (email, password) => {
   try {
   const res = await createUserWithEmailAndPassword(auth, email, password)
-  .then((res)=>console.log("cuenta creada con exito"))
   } catch (error) {
     alert(error)
 }
