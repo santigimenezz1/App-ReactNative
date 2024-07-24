@@ -9,6 +9,7 @@ import TarjetaConsejos from '../../components/TarjetaConsejos/TarjetaConsejos.js
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebaseConfig.js';
 import { CartContext } from '../../Context/Context.jsx';
+import { FontAwesome5 } from '@expo/vector-icons';
 
 const Home = ({ navigation }) => {
   const [niveles, setNiveles] = useState([]);
@@ -40,7 +41,7 @@ const Home = ({ navigation }) => {
         <Text style={styles.home__introText}>Encontraras el código único en el folleto que viene con el producto</Text>
           </>
         }
-        <Text style={styles.home__sectionTitle}>Imprescindibles</Text>
+        <Text style={styles.home__sectionTitle}><FontAwesome5 name="play" size={18} color="white" />  Imprescindibles</Text>
         {niveles.length > 0 &&
           niveles.filter((nivel) => nivel.data.nombre === "Calentamiento/Enfriamiento")
             .map((nivel) => (
@@ -53,7 +54,7 @@ const Home = ({ navigation }) => {
               />
             ))
         }
-        <Text style={styles.home__sectionTitle}>Ejercicios</Text>
+        <Text style={styles.home__sectionTitle}><FontAwesome5 name="play" size={18} color="white" />  Ejercicios</Text>
         {niveles.length > 0 &&
           niveles.filter((nivel) => nivel.data.nombre !== "Calentamiento/Enfriamiento")
             .map((nivel) => (

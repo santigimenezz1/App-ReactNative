@@ -5,6 +5,7 @@ import { db } from "../../firebaseConfig.js"
 import niveles from "../../niveles.js"
 import { useContext, useState } from "react"
 import { CartContext } from "../../Context/Context.jsx"
+import { FontAwesome } from '@expo/vector-icons';
 
 
 const TarjetaNivel = ( {data, nivel, tiempo, navigation} ) => {
@@ -26,15 +27,26 @@ const TarjetaNivel = ( {data, nivel, tiempo, navigation} ) => {
         <View>
         <Pressable onPress={()=>navigation.navigate("DetalleNivel", {nivel, data})} style={styles.container__tarjetaNivel}>
             <View>
+                <View>
             <Text style={styles.text}>{nivel}</Text>
             <Text style={styles.texth2}>{tiempo} min</Text>
+                </View>
+               
+
             </View>
             {
-                !closed &&
+                !closed ?
             <View style={styles.container__candado}>
             <Image width={22} height={22} source={{uri:"https://res.cloudinary.com/dcf9eqqgt/image/upload/v1720478069/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/cerrar_qrawqr.png"}}></Image>
             <Text style={styles.text__bloqueado}>Bloqueado</Text>
             </View>
+            : (
+                <View style={{display:"flex", flexDirection:"row", gap:5}}>
+                   <FontAwesome name="star" size={24} color="white" />                
+                   <FontAwesome name="star" size={24} color="white" />                
+                   <FontAwesome name="star-o" size={24} color="white" />                
+                </View>
+            )
             }
         </Pressable>
 
