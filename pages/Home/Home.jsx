@@ -10,6 +10,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebaseConfig.js';
 import { CartContext } from '../../Context/Context.jsx';
 import BotonVentana from '../../components/BotonVentana/BotonVentana.jsx';
+import SelectorIdioma from '../../components/SelectorIdioma/SelectorIdioma.jsx';
 
 const Home = ({ navigation }) => {
   const [niveles, setNiveles] = useState([]);

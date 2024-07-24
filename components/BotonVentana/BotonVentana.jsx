@@ -2,13 +2,14 @@
 import React, { useCallback, useRef, useMemo } from 'react';
 import { StyleSheet, Text, View, Button, Image, Pressable } from 'react-native';
 import BottomSheet, { BottomSheetModal, BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import TarjetaNivelDetalle from '../../pages/Home/DetalleNivel/TarjetaNivelDetalle/TarjetaNivelDetalle';
 
-const BotonVentana = () => {
+const BotonVentana = ( {nivel, tiempo, navigation, ejercicio} ) => {
   // ref
   const bottomSheetModalRef = useRef(null);
 
   // variables
-  const snapPoints = useMemo(() => ['10%', '30%'], []);
+  const snapPoints = useMemo(() => ['5%', '30%'], []);
 
   // callbacks
   const handlePresentModalPress = useCallback(() => {
@@ -22,13 +23,8 @@ const BotonVentana = () => {
   return (
     <BottomSheetModalProvider>
       <View style={styles.container__navBar__menu}>
-        <Pressable onPress={()=>handlePresentModalPress()}>
-                    <Image
-                        source={{ uri: "https://res.cloudinary.com/dcf9eqqgt/image/upload/v1720483415/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/mundo_u3lsbt.png" }}
-                        width={50}
-                        height={50}
-                    />
-
+        <Pressable style={{zIndex:-1}} onPress={()=>handlePresentModalPress()}>
+          <TarjetaNivelDetalle nivel={nivel} tiempo={tiempo} navigation={navigation} ejercicio={ejercicio} handlePresentModalPress={handlePresentModalPress} />
         </Pressable>
                 </View>
         <BottomSheetModal
@@ -37,6 +33,7 @@ const BotonVentana = () => {
           snapPoints={snapPoints}
           onChange={handleSheetChanges}
         >
+          <View style={{zIndex:10}}>
           <View style={styles.contentContainer}>
             <View style={styles.contentContainer__idiomaPrincipal}>
                 <Image width={30} height={30} source={{uri:"https://res.cloudinary.com/dcf9eqqgt/image/upload/v1720483276/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/bandera_g5nhnc.png"}}></Image>
@@ -58,6 +55,8 @@ const BotonVentana = () => {
                 <Image width={30} height={30} source={{uri:"https://res.cloudinary.com/dcf9eqqgt/image/upload/v1720483276/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/bandera_g5nhnc.png"}}></Image>
                 <Text>Español</Text>
             </View>
+          </View>
+
           </View>
         </BottomSheetModal>
     </BottomSheetModalProvider>

@@ -3,6 +3,7 @@ import { ScrollView, Text, View } from 'react-native';
 import TarjetaNivelDetalle from './TarjetaNivelDetalle/TarjetaNivelDetalle';
 import styles from './DetalleNivelStyles';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import BotonVentana from '../../../components/BotonVentana/BotonVentana.jsx';
 
 const DetalleNivel = () => {
 
@@ -22,7 +23,7 @@ const DetalleNivel = () => {
             {
                 data &&
                 data.data.ejercicios.map((ejercicio)=>(
-            <TarjetaNivelDetalle ejercicio={ejercicio} nivel={ejercicio.nombre} tiempo={"15:35"} navigation={navigation} />
+            <BotonVentana ejercicio={ejercicio} nivel={ejercicio.nombre} tiempo={"15:35"} navigation={navigation} />
                 ))
 
             }

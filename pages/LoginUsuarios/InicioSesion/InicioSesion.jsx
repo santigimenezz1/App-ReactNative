@@ -3,6 +3,7 @@ import { View, Text, TextInput, Pressable, Image } from 'react-native';
 import styles from './InicioSesion';
 import {login} from '../../../firebaseConfig.js'
 import { CartContext } from '../../../Context/Context.jsx';
+import Modal from 'react-native-modal';
 
 const InicioSesion = () => {
   const [valueEmail, setValueEmail] = useState("")

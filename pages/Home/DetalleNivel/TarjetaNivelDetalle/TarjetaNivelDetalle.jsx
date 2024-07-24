@@ -3,14 +3,14 @@ import styles from './TarjetaNivelDetalleStyles.js'
 import { useContext } from "react"
 import { CartContext } from "../../../../Context/Context.jsx"
 
-const TarjetaNivelDetalle = ( {nivel, tiempo, navigation, ejercicio} ) => {
+const TarjetaNivelDetalle = ( {nivel, tiempo, navigation, ejercicio, handlePresentModalPress} ) => {
     const {closed, setClosed, userRegistro} = useContext(CartContext)
 
     const navegarDetalleVideo = () => {
         if(closed){
             navigation.navigate("DetalleNivelVideo", {ejercicio})
         }else{
-            alert("Desbloquear con codigo de acceso")
+            handlePresentModalPress()
         }
     }
     
