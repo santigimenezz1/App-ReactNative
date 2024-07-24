@@ -15,8 +15,8 @@ const HomeNavigator = () => {
     
     <Stack.Navigator screenOptions={{
           headerStyle: {
-          backgroundColor: "hsl(215, 18%, 13%)",
-          height:130
+            backgroundColor: "hsl(216, 13%, 8%)",
+          height:130,
         },
         headerTitleStyle: {
           fontSize: RFValue(25),
