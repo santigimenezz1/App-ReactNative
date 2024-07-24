@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         color:"white",
         paddingLeft:10,
         fontFamily: 'NunitoSans_400Regular',
-        letterSpacing:2
+        letterSpacing:2,
 
     },
     button:{

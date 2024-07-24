@@ -3,6 +3,7 @@ import { ScrollView, Text, View } from 'react-native';
 import TarjetaNivelDetalle from './TarjetaNivelDetalle/TarjetaNivelDetalle';
 import styles from './DetalleNivelStyles';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import ModalCodigoDesbloqueo from '../../../components/ModalCodigoDesbloqueo/ModalCodigoDesbloqueo';
 
 const DetalleNivel = () => {
 
@@ -22,7 +23,7 @@ const DetalleNivel = () => {
             {
                 data &&
                 data.data.ejercicios.map((ejercicio)=>(
-                    <TarjetaNivelDetalle nivel={nivel} tiempo={ejercicio.tiempo} navigation={navigation} ejercicio={ejercicio} />
+                    <ModalCodigoDesbloqueo nivel={nivel} tiempo={ejercicio.tiempo} navigation={navigation} ejercicio={ejercicio} />
                     ))
 
             }

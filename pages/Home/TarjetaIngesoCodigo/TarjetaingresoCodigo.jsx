@@ -4,7 +4,7 @@ import styles from "./TarjetaIngresoCodigoStyles"
 import { useContext, useState } from "react"
 import { CartContext } from "../../../Context/Context"
 
-const TarjetaIngresoCodigo = () => {
+const TarjetaIngresoCodigo = ( {CerrarModal} ) => {
     const {closed, setClosed, userRegistro} = useContext(CartContext)
     const [text, setText] = useState("")
 
@@ -13,6 +13,7 @@ const TarjetaIngresoCodigo = () => {
         setClosed(true)
         console.log(closed)
         alert("Empieza a entrenar!!")
+        CerrarModal()
 
      }else{
         setClosed(false)

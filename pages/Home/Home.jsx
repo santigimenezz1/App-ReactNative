@@ -10,6 +10,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebaseConfig.js';
 import { CartContext } from '../../Context/Context.jsx';
 import { FontAwesome5 } from '@expo/vector-icons';
+import ModalCodigoDesbloqueo from '../../components/ModalCodigoDesbloqueo/ModalCodigoDesbloqueo.jsx';
 
 const Home = ({ navigation }) => {
   const [niveles, setNiveles] = useState([]);

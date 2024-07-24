@@ -5,14 +5,14 @@ import { CartContext } from "../../../../Context/Context.jsx"
 import { FontAwesome } from '@expo/vector-icons';
 
 
-const TarjetaNivelDetalle = ( {nivel, tiempo, navigation, ejercicio, handlePresentModalPress} ) => {
+const TarjetaNivelDetalle = ( {setModalVisible,nivel, tiempo, navigation, ejercicio, handlePresentModalPress} ) => {
     const {closed, setClosed, userRegistro} = useContext(CartContext)
 
     const navegarDetalleVideo = () => {
         if(closed){
             navigation.navigate("DetalleNivelVideo", {ejercicio})
         }else{
-            alert("Ingresa codigo de desbloqueo para seguir")
+            setModalVisible()
         }
     }
     

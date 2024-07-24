@@ -69,8 +69,7 @@ const styles = StyleSheet.create({
     padding: 24,
     justifyContent: 'center',
     backgroundColor: 'black',
-    borderWidth:1,
-    borderColor:"red",
+ 
     width:70,
     height:80,
     display:"flex",
