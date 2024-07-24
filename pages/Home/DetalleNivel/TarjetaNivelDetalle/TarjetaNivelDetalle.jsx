@@ -10,7 +10,7 @@ const TarjetaNivelDetalle = ( {nivel, tiempo, navigation, ejercicio, handlePrese
         if(closed){
             navigation.navigate("DetalleNivelVideo", {ejercicio})
         }else{
-            handlePresentModalPress()
+            alert("Ingresa codigo de desbloqueo para seguir")
         }
     }
     

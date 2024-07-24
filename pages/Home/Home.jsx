@@ -9,14 +9,10 @@ import TarjetaConsejos from '../../components/TarjetaConsejos/TarjetaConsejos.js
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebaseConfig.js';
 import { CartContext } from '../../Context/Context.jsx';
-import BotonVentana from '../../components/BotonVentana/BotonVentana.jsx';
-import SelectorIdioma from '../../components/SelectorIdioma/SelectorIdioma.jsx';
 
 const Home = ({ navigation }) => {
   const [niveles, setNiveles] = useState([]);
   const {closed, setClosed, userRegistro} = useContext(CartContext)
-
-
   useEffect(() => {
     const obtenerNiveles = async () => {
       try {
@@ -33,17 +29,17 @@ const Home = ({ navigation }) => {
     };
     obtenerNiveles();
   }, []);
-
-
   return (
     <View style={styles.home}>
       <NavBar />
       <ScrollView style={styles.home__main} contentContainerStyle={styles.home__contentContainer}>
         {
           !closed &&
+          <>
         <TarjetaIngresoCodigo />
-        }
         <Text style={styles.home__introText}>Encontraras el código único en el folleto que viene con el producto</Text>
+          </>
+        }
         <Text style={styles.home__sectionTitle}>Imprescindibles</Text>
         {niveles.length > 0 &&
           niveles.filter((nivel) => nivel.data.nombre === "Calentamiento/Enfriamiento")
@@ -61,13 +57,13 @@ const Home = ({ navigation }) => {
         {niveles.length > 0 &&
           niveles.filter((nivel) => nivel.data.nombre !== "Calentamiento/Enfriamiento")
             .map((nivel) => (
-              <TarjetaNivel 
-                key={nivel.id}
-                data={nivel} 
-                navigation={navigation} 
-                nivel={nivel.data.nombre} 
-                tiempo={nivel.data.tiempoTotal} 
-              />
+                <TarjetaNivel 
+                  key={nivel.id}
+                  data={nivel} 
+                  navigation={navigation} 
+                  nivel={nivel.data.nombre} 
+                  tiempo={nivel.data.tiempoTotal} 
+                />
             ))
         }
         <View style={styles.home__tipsContainer}>
