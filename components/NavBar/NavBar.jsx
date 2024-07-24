@@ -18,11 +18,6 @@ const NavBar = () => {
                     <Text style={styles.container__navBar__titulo__text}>EJERCICIOS</Text>
                 </View>
                 <View style={styles.container__navBar__menu}>
-                    <Image
-                        source={{ uri: "https://res.cloudinary.com/dcf9eqqgt/image/upload/v1720483415/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/mundo_u3lsbt.png" }}
-                        width={30}
-                        height={30}
-                    />
                 </View>
             </View>
         </SafeAreaView>

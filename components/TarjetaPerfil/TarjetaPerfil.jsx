@@ -3,7 +3,7 @@ import styles from "../TarjetaPerfil/TarjetaPerfil.js"
 
 const TarjetaPerfil = ( {userRegistro} ) => {
     return (
-        <View style={{borderColor:"hsl(169, 54%, 47%)", borderWidth:6, width:"100%", height:510, borderRadius:40, backgroundColor:"hsl(166, 63%, 41%)"}}>
+        <View style={{borderColor:"hsl(169, 54%, 47%)", borderWidth:6, width:"100%", height:500, borderRadius:40, backgroundColor:"hsl(166, 63%, 41%)"}}>
             
             <View style={{width:"100%", height:"55%", display:"flex", flexDirection:"row", borderTopLeftRadius:40, borderTopRightRadius:40}}>
                 <View style={{width:"30%", paddingTop:20, display:"flex", alignItems:"center"}}>
