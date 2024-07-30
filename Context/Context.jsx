@@ -16,7 +16,7 @@ const GlobalContext = ({ children }) => {
       imagenPerfil: "",
       codigoAcceso: "BLC2831"
     });
-    const [usuarioOn, setUsuarioOn] = useState(true)
+    const [usuarioOn, setUsuarioOn] = useState(false)
     const [closed, setClosed] = useState(false)
 
     const data = {

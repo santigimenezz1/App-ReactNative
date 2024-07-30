@@ -31,8 +31,6 @@ const TarjetaNivel = ( {data, nivel, tiempo, navigation} ) => {
             <Text style={styles.text}>{nivel}</Text>
             <Text style={styles.texth2}>{tiempo} min</Text>
                 </View>
-               
-
             </View>
             {
                 !closed ?

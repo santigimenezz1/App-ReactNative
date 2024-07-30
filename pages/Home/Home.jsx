@@ -15,6 +15,15 @@ import ModalCodigoDesbloqueo from '../../components/ModalCodigoDesbloqueo/ModalC
 const Home = ({ navigation }) => {
   const [niveles, setNiveles] = useState([]);
   const {closed, setClosed, userRegistro} = useContext(CartContext)
+  const [codigoCorrecto, setCodigoCorrecto] = useState(false)
+  const [modalVisible, setModalVisible] = useState(false);
+
+
+  const CerrarModal = () => {
+    setCodigoCorrecto(false)
+    setModalVisible(false)
+  }
+
   useEffect(() => {
     const obtenerNiveles = async () => {
       try {
@@ -38,7 +47,11 @@ const Home = ({ navigation }) => {
         {
           !closed &&
           <>
-        <TarjetaIngresoCodigo />
+        <TarjetaIngresoCodigo setModalVisible={setModalVisible} CerrarModal={CerrarModal} setCodigoCorrecto={setCodigoCorrecto} />
+        {
+          codigoCorrecto &&
+          <Text style={{color:"red", paddingLeft:20}}>Codigo incorrecto</Text>
+        }
         <Text style={styles.home__introText}>Encontraras el código único en el folleto que viene con el producto</Text>
           </>
         }

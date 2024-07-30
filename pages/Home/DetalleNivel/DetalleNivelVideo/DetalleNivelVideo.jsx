@@ -9,7 +9,7 @@ const DetalleNivelVideo = () => {
     const route = useRoute(); //  usamos useRoute para acceder a los parámetros pasados a la pantalla (el nivel)
     const { ejercicio } = route.params; 
     return (
-        <View style={{height:"100%",backgroundColor: "black", }}>
+        <View style={{height:"100%",backgroundColor: "hsl(216, 13%, 8%)", }}>
             <View style={{ display:"flex", justifyContent:"center", alignItems:"center", marginTop:30}}>
                     <View style={{width:"98%", display:"flex", alignItems:"center"}}>
                 <Video
@@ -17,15 +17,15 @@ const DetalleNivelVideo = () => {
                     useNativeControls
                     resizeMode="contain"
                     isLooping
-                    style={{width:"90%", height:179, borderWidth:2, borderColor:"white", borderRadius:7}}
+                    style={{width:"100%", height:179, borderRadius:7}}
                   />
                     </View>
                     <View style={{width:"100%",marginTop:20, display:"flex", justifyContent:"center", alignItems:"center"}}>
                     <Text style={{color:"white", fontSize:25, fontFamily: 'NunitoSans_400Regular', marginTop:10}}>{ejercicio.guia}</Text>
                     <Image
-                        source={{ uri: ejercicio.imagenEjemplo }}
-                        width={"80%"}
-                        height={180}
+                        source={{ uri: "https://res.cloudinary.com/dcf9eqqgt/image/upload/v1721866391/Imagen_25-7-24_a_las_2.09_s5wff8.jpg"}}
+                        width={"90%"}
+                        height={215}
                         style={{marginTop:10}}
                     />
                     </View>

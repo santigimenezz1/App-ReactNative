@@ -5,8 +5,10 @@ import TarjetaNivelDetalle from '../../pages/Home/DetalleNivel/TarjetaNivelDetal
 
 const ModalCodigoDesbloqueo = ( {nivel, tiempo, navigation, ejercicio} ) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [codigoCorrecto, setCodigoCorrecto] = useState(false)
 
   const CerrarModal = () => {
+    setCodigoCorrecto(false)
     setModalVisible(false)
   }
 
@@ -21,14 +23,20 @@ const ModalCodigoDesbloqueo = ( {nivel, tiempo, navigation, ejercicio} ) => {
           setModalVisible(!modalVisible);
         }}>
         <View style={styles.centeredView}>
+          
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Verificar para desbloquear</Text>
-            <TarjetaIngresoCodigo CerrarModal={CerrarModal} />
+
+            <TarjetaIngresoCodigo codigoCorrecto={codigoCorrecto} setCodigoCorrecto={setCodigoCorrecto} CerrarModal={CerrarModal} />
             <Pressable
               style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}>
+              onPress={() => CerrarModal()}>
               <Text style={styles.textStyle}>Salir</Text>
             </Pressable>
+            {
+              codigoCorrecto &&
+            <Text style={{color:"red", fontSize:16, marginTop:10,fontFamily: 'NunitoSans_400Regular',}}>Codigo incorrecto </Text>
+            }
           </View>
         </View>
       </Modal>
