@@ -15,6 +15,9 @@ const DetalleNivel = () => {
     useEffect(() => {
         navigation.setOptions({ title: nivel });
     }, [navigation, nivel]);
+
+
+    console.log(data)
     return (
         <ScrollView 
             style={styles.container__detalleNivel} 

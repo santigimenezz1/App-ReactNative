@@ -22,6 +22,9 @@ const TarjetaNivel = ( {data, nivel, tiempo, navigation} ) => {
     }
 
     console.log(closed)
+
+
+    console.log(data)
  
     return ( //AQUI LE DIGO QUE ME ENVIE A LA PANTALLA DETALLENIVEL Y ADEMAS LE PASO EL USEPARAMS ()
         <View>
@@ -40,6 +43,7 @@ const TarjetaNivel = ( {data, nivel, tiempo, navigation} ) => {
             </View>
             : (
                 <View style={{display:"flex", flexDirection:"row", gap:5}}>
+
                    <FontAwesome name="star" size={24} color="white" />                
                    <FontAwesome name="star" size={24} color="white" />                
                    <FontAwesome name="star-o" size={24} color="white" />                

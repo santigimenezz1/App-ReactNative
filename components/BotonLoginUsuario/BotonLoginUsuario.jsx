@@ -1,7 +1,19 @@
 import { Pressable, Text, View } from "react-native"
 import styles from "./BotonLoginUsuario"
+import niveles from "../../niveles"
+import { addDoc, collection } from "firebase/firestore"
+import { db } from "../../firebaseConfig"
+
+
 
 const BotonLoginUsuario = ( {navigation} ) => {
+    const test = (niveles) => {
+        //AÑADIMOS EL DOCUMENTO A UNA COLECCION, ESPECIFICO LA BASE DE DATOS Y EL NOMBRE DE LA COLLECCION, LUEGO EL OBJETO QUE QUIERO AGREGAR A ESA COLECCION.
+        niveles.map((nivel)=>(
+            addDoc(collection(db, "niveles"), nivel)        
+        ))
+  }
+
     return (
         <View style={styles.container__botonesRegistro}>
         <Pressable onPress={()=>navigation.navigate("Registrarse")} style={styles.botonRegistroUsuario}>

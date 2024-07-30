@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 
+
 const styles = StyleSheet.create({
     container__detalleCalentamiento:{
         height:"auto",
@@ -9,6 +10,12 @@ const styles = StyleSheet.create({
         paddingTop:20,
         paddingBottom:30,
         paddingHorizontal:12
-,    }
+,    },
+detalleCalentamiento__title:{
+    color:"white",
+    fontSize:18,
+    margin:10,
+    marginTop:20
+}
 })
 export default styles
