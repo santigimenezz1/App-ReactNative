@@ -10,7 +10,9 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebaseConfig.js';
 import { CartContext } from '../../Context/Context.jsx';
 import { FontAwesome5 } from '@expo/vector-icons';
-import ModalCodigoDesbloqueo from '../../components/ModalCodigoDesbloqueo/ModalCodigoDesbloqueo.jsx';
+import { Plane, Pulse, Swing } from 'react-native-animated-spinkit'
+
+
 
 const Home = ({ navigation }) => {
   const [niveles, setNiveles] = useState([]);
@@ -42,50 +44,62 @@ const Home = ({ navigation }) => {
   }, []);
   return (
     <View style={styles.home}>
-      <NavBar />
-      <ScrollView style={styles.home__main} contentContainerStyle={styles.home__contentContainer}>
-        {
-          !closed &&
+      {
+        !niveles.length > 0 ?
+        <View style={{height:"100%", width:"100%", display:"flex", alignItems:"center", justifyContent:"center"}}>
+          <Swing size={48} color="hsl(199, 76%, 28%)"/>
+        </View>
+         : (
           <>
-        <TarjetaIngresoCodigo setModalVisible={setModalVisible} CerrarModal={CerrarModal} setCodigoCorrecto={setCodigoCorrecto} />
-        {
-          codigoCorrecto &&
-          <Text style={{color:"red", paddingLeft:20}}>Codigo incorrecto</Text>
-        }
-        <Text style={styles.home__introText}>Encontraras el código único en el folleto que viene con el producto</Text>
-          </>
-        }
-        <Text style={styles.home__sectionTitle}><FontAwesome5 name="play" size={18} color="white" />  Imprescindibles</Text>
-        {niveles.length > 0 &&
-          niveles.filter((nivel) => nivel.data.nombre === "Calentamiento/Enfriamiento")
-            .map((nivel) => (
-              <TarjetaCalentamiento 
+    <NavBar />
+    
+    <ScrollView style={styles.home__main} contentContainerStyle={styles.home__contentContainer}>
+      {
+        !closed &&
+        <>
+      <TarjetaIngresoCodigo setModalVisible={setModalVisible} CerrarModal={CerrarModal} setCodigoCorrecto={setCodigoCorrecto} />
+      {
+        codigoCorrecto &&
+        <Text style={{color:"red", paddingLeft:20}}>Codigo incorrecto</Text>
+      }
+      <Text style={styles.home__introText}>Encontraras el código único en el folleto que viene con el producto</Text>
+        </>
+      }
+      <Text style={styles.home__sectionTitle}><FontAwesome5 name="play" size={18} color="white" />  Imprescindibles</Text>
+      {niveles.length > 0 &&
+        niveles.filter((nivel) => nivel.data.nombre === "Calentamiento/Enfriamiento")
+          .map((nivel) => (
+            <TarjetaCalentamiento 
+              key={nivel.id}
+              data={nivel} 
+              navigation={navigation} 
+              nivel={nivel.data.nombre} 
+              tiempo={nivel.data.tiempoTotal} 
+            />
+          ))
+      }
+      <Text style={styles.home__sectionTitle}><FontAwesome5 name="play" size={18} color="white" />  Ejercicios</Text>
+      {niveles.length > 0 &&
+        niveles.filter((nivel) => nivel.data.nombre !== "Calentamiento/Enfriamiento")
+          .map((nivel) => (
+              <TarjetaNivel 
                 key={nivel.id}
                 data={nivel} 
                 navigation={navigation} 
                 nivel={nivel.data.nombre} 
                 tiempo={nivel.data.tiempoTotal} 
               />
-            ))
-        }
-        <Text style={styles.home__sectionTitle}><FontAwesome5 name="play" size={18} color="white" />  Ejercicios</Text>
-        {niveles.length > 0 &&
-          niveles.filter((nivel) => nivel.data.nombre !== "Calentamiento/Enfriamiento")
-            .map((nivel) => (
-                <TarjetaNivel 
-                  key={nivel.id}
-                  data={nivel} 
-                  navigation={navigation} 
-                  nivel={nivel.data.nombre} 
-                  tiempo={nivel.data.tiempoTotal} 
-                />
-            ))
-        }
-        <View style={styles.home__tipsContainer}>
-          <TarjetaConsejos />
-        </View>
-      </ScrollView>
-    </View>
+          ))
+      }
+      <View style={styles.home__tipsContainer}>
+        <TarjetaConsejos />
+      </View>
+    </ScrollView>
+          </>
+
+         )
+      }
+  </View>
   );
 }
 

@@ -13,7 +13,7 @@ const DetalleNivelVideo = () => {
             <View style={{ display:"flex", justifyContent:"center", alignItems:"center", marginTop:30}}>
                     <View style={{width:"98%", display:"flex", alignItems:"center"}}>
                 <Video
-                    source={{ uri: ejercicio.videoURL }}
+                    source={{ uri: "https://res.cloudinary.com/dcf9eqqgt/video/upload/v1722347388/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/WhatsApp_Video_2024-07-30_at_15.49.06_xvutg0.mp4" }}
                     useNativeControls
                     resizeMode="contain"
                     isLooping
