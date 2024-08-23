@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     input:{
         color:"red",
         borderWidth:2,
-        borderColor:"hsl(161, 51%, 35%)",
+        borderColor:"hsl(199, 76%, 28%)",
         width: RFValue(120),
         height: RFValue(40),
         borderRadius:12,
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         display:"flex",
         justifyContent:"center",
         alignItems:"center",
-        backgroundColor:"hsl(161, 51%, 35%)",
+        backgroundColor:"hsl(199, 76%, 28%)",
         padding:8,
         borderRadius:22,
         width:120,

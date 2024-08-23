@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     container__navBar:{
         width:"100%",
         padding:10,
+        paddingLeft:20,
         display:"flex",
         flexDirection:"row",
         justifyContent:"space-between",
@@ -20,9 +21,10 @@ const styles = StyleSheet.create({
     },
     container__navBar__titulo__text:{
         color:"white",
-        fontSize:RFValue(18),
+        fontSize:RFValue(22),
         fontFamily: 'NunitoSans_400Regular',
-        letterSpacing:2
+        letterSpacing:4,
+        
     },
     container__navBar__menu:{
       

@@ -34,7 +34,6 @@ const CargarImagen = ({navigation}) => {
     }
    }
     }
-    console.log(userRegistro)
  return (
     <View style={styles.container__cargarImagen}>
         <View style={styles.container__imagen}>

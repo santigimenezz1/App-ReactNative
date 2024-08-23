@@ -34,7 +34,6 @@ const Perfil = () => {
     fetchUserByEmail("test3@gmail.com"); // Reemplaza con el email que deseas buscar
   }, []);  // El segundo argumento [] asegura que este efecto se ejecute solo un
 
-  console.log(userRegistro)
     return (
         <View style={{width:"100%", height:"100%",backgroundColor:"hsl(216, 13%, 8%)", padding:20}}>
                   <NavBar />

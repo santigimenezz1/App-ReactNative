@@ -6,11 +6,12 @@ import TarjetaNivel from "../../components/TarjetaNivel/TarjetaNivel.jsx";
 import styles from '../Home/Home.js'; // Asegúrate de usar el archivo de estilos correcto
 import TarjetaIngresoCodigo from './TarjetaIngesoCodigo/TarjetaingresoCodigo.jsx';
 import TarjetaConsejos from '../../components/TarjetaConsejos/TarjetaConsejos.jsx';
-import { collection, getDocs } from 'firebase/firestore';
+import { addDoc, collection, getDocs } from 'firebase/firestore';
 import { db } from '../../firebaseConfig.js';
 import { CartContext } from '../../Context/Context.jsx';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { Plane, Pulse, Swing } from 'react-native-animated-spinkit'
+import niveles from '../../niveles.js';
 
 
 
@@ -19,7 +20,6 @@ const Home = ({ navigation }) => {
   const {closed, setClosed, userRegistro} = useContext(CartContext)
   const [codigoCorrecto, setCodigoCorrecto] = useState(false)
   const [modalVisible, setModalVisible] = useState(false);
-
 
   const CerrarModal = () => {
     setCodigoCorrecto(false)
@@ -42,6 +42,9 @@ const Home = ({ navigation }) => {
     };
     obtenerNiveles();
   }, []);
+
+
+
   return (
     <View style={styles.home}>
       {
@@ -67,7 +70,7 @@ const Home = ({ navigation }) => {
       }
       <Text style={styles.home__sectionTitle}><FontAwesome5 name="play" size={18} color="white" />  Imprescindibles</Text>
       {niveles.length > 0 &&
-        niveles.filter((nivel) => nivel.data.nombre === "Calentamiento/Enfriamiento")
+        niveles.filter((nivel) => nivel.data.nombre === "Primeros pasos")
           .map((nivel) => (
             <TarjetaCalentamiento 
               key={nivel.id}

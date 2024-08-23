@@ -5,11 +5,6 @@ import { useContext, useState } from "react"
 import { CartContext } from "../../Context/Context"
 
 const TarjetaIngresoCodigo = () => {
-
-
-
-
-    console.log(userRegistro)
     return (
         <View style={styles.container}>
             <Image width={25} height={30} source={{uri:"https://res.cloudinary.com/dcf9eqqgt/image/upload/v1720473576/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/contrasena_ddqgg9.png"}}></Image>

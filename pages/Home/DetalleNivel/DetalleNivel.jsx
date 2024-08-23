@@ -17,7 +17,6 @@ const DetalleNivel = () => {
     }, [navigation, nivel]);
 
 
-    console.log(data)
     return (
         <ScrollView 
             style={styles.container__detalleNivel} 

@@ -16,7 +16,6 @@ const TarjetaNivelDetalle = ( {setModalVisible,nivel, tiempo, navigation, ejerci
         }
     }
     
-    console.log(ejercicio)
     return (
         <View style={styles.container__tarjetaNivelDetalle}>
         <Pressable onPress={()=>navegarDetalleVideo()} style={styles.container__tarjetaNivel}>
@@ -36,13 +35,13 @@ const TarjetaNivelDetalle = ( {setModalVisible,nivel, tiempo, navigation, ejerci
             <View style={{display:"flex", flexDirection:"row", gap:5}}>
                 {
                     ejercicio.estrellas.completas.map(()=>(
-                        <FontAwesome name="star" size={24} color="white" />                
+                        <FontAwesome name="star" size={24} color="hsl(199, 76%, 28%)" />                
                     ))
                 }
                 {
 
                       ejercicio.estrellas.vacias.map(()=>(
-                        <FontAwesome name="star-o" size={24} color="white" />                
+                        <FontAwesome name="star-o" size={24} color="hsl(199, 76%, 28%)" />                
                     ))
                 }
          </View>

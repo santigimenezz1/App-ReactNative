@@ -8,7 +8,7 @@ botonLoginUsuario:{
     display:"flex",
     alignItems:"center",
     justifyContent:"center",
-    backgroundColor: "hsl(160, 45%, 52%)",
+    backgroundColor: "hsl(199, 76%, 28%)",
 },
 botonText:{
     color:"white",

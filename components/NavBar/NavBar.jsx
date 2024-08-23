@@ -10,12 +10,11 @@ const NavBar = () => {
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container__navBar}>
                 <View style={styles.container__navBar__titulo}>
-                    <Image
-                        source={{ uri: "https://res.cloudinary.com/dcf9eqqgt/image/upload/v1720109354/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/futbol-americano_shzkr2.png" }}
-                        width={25}
-                        height={25}
-                    />
-                    <Text style={styles.container__navBar__titulo__text}>EJERCICIOS</Text>
+                    <Text style={styles.container__navBar__titulo__text}>FITTLLINE</Text>
+                    <Image 
+                         width={25}
+                        height={25} source={{uri:"https://res.cloudinary.com/dcf9eqqgt/image/upload/v1724232180/APP%20ALFOMBRA%20DE%20FUTBOL%20AMAZON/LOGO/Imagen_10-8-24_a_las_19.15_bkb9x9.svg"}} />
+
                 </View>
                 <View style={styles.container__navBar__menu}>
                 </View>

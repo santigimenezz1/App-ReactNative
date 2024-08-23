@@ -16,10 +16,17 @@ const LoginUsuarioNavigator = () => {
         <View style={{ flex: 1 }}>
             <Stack.Navigator screenOptions={{
                 headerStyle: {
-                    backgroundColor:"black"
+                    backgroundColor:"hsl(199, 76%, 28%)",
                 },
                 headerTintColor: 'white', 
-
+                headerTitleStyle: {
+                    fontSize: 20,          // Tamaño de fuente del título
+                    lineHeight: 24,        // Altura de línea del título
+                    letterSpacing: 2.5,    // Espaciado entre letras del título
+                    textAlign: 'center',   // Alineación del texto
+                    fontFamily: 'NunitoSans_400Regular',
+                },
+                
             }}>
                 <Stack.Screen name="Principal" component={LoginUsuarios} options={{ headerShown: false }}/>
                 <Stack.Screen name="Iniciar sesión" component={InicioSesion} />

@@ -29,7 +29,6 @@ const CrearPerfil = ( {navigation} ) => {
         navigation.navigate("Cargar imagen");
       };
     
-    console.log(userRegistro)
     return (
         <View style={styles.container__crearPerfil}>
             <View style={styles.container__input}>

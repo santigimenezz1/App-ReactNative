@@ -40,6 +40,15 @@ export const login = async ( email, password, setUsuarioOn ) => {
   try{
     let res = await signInWithEmailAndPassword(auth, email, password);
     setUsuarioOn(true)
+    
+const BotonLoginUsuario = ( {navigation} ) => {
+  const test = (niveles) => {
+      //AÑADIMOS EL DOCUMENTO A UNA COLECCION, ESPECIFICO LA BASE DE DATOS Y EL NOMBRE DE LA COLLECCION, LUEGO EL OBJETO QUE QUIERO AGREGAR A ESA COLECCION.
+      niveles.map((nivel)=>(
+          addDoc(collection(db, "niveles"), nivel)        
+      ))
+}
+}
   }
   catch(error){
     alert(error)
