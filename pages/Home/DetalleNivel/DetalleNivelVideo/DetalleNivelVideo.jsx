@@ -1,18 +1,26 @@
 import { Video } from "expo-av";
 import { Image, TouchableOpacity, View } from "react-native";
 import { Text } from "react-native-paper";
-import { useRoute } from "@react-navigation/native";
-import { useState, useRef } from "react";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import { useState, useRef, useEffect } from "react";
 import { Swing } from "react-native-animated-spinkit";
 
 const DetalleNivelVideo = () => {
     const route = useRoute(); // Usamos useRoute para acceder a los parámetros pasados a la pantalla (el nivel)
     const { ejercicio } = route.params; 
+    const navigation = useNavigation();
     const [typeVideo, setTypeVideo] = useState("ejercicio");
     const [isLoading, setIsLoading] = useState(true); // Estado para manejar el texto de cargando
     const [isPosterVisible, setIsPosterVisible] = useState(true); // Estado para manejar la visibilidad de la previsualización
 
     const videoRef = useRef(null);
+
+    useEffect(() => {
+        // Actualiza el título de la cabecera con el nombre del ejercicio
+        navigation.setOptions({ title: ejercicio.nombre });
+    }, [navigation, ejercicio.nombre]);
+
+
 
     const handleVideoLoad = () => {
         setIsLoading(false);
