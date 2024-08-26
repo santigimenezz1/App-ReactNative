@@ -83,7 +83,7 @@ const Home = ({ navigation }) => {
       }
       <Text style={styles.home__sectionTitle}><FontAwesome5 name="play" size={18} color="white" />  Ejercicios</Text>
       {niveles.length > 0 &&
-        niveles.filter((nivel) => nivel.data.nombre !== "Calentamiento/Enfriamiento")
+        niveles.filter((nivel) => nivel.data.nombre !== "Primeros pasos")
           .map((nivel) => (
               <TarjetaNivel 
                 key={nivel.id}
