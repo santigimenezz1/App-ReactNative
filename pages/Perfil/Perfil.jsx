@@ -9,8 +9,10 @@ import BotonVentana from "../../components/BotonVentana/BotonVentana.jsx"
 
 
 const Perfil = () => {
-  const {setUsuarioOn, userRegistro} = useContext(CartContext)
+  const {setUsuarioOn, userRegistro, closed, setClosed,} = useContext(CartContext)
   const [userPerfil, setUserPerfil] = useState()
+  
+
   useEffect(() => {
     const fetchUserByEmail = async (email) => {
       const userCollectionRef = collection(db, "usuarios");

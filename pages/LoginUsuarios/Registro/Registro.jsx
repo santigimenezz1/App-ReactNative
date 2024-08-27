@@ -23,7 +23,7 @@ const RegistroSchema = Yup.object().shape({
 });
 
 const Registro = ({ navigation }) => {
-  const { userRegistro, setUserRegistro, setUsuarioOn } = useContext(CartContext);
+  const { userRegistro, setUserRegistro, setUsuarioOn, userOnline, setUserOnline } = useContext(CartContext);
   const [imagen, setImagen] = useState(null);
 
   const verificarUsuarioExistente = async (email) => {
@@ -36,38 +36,38 @@ const Registro = ({ navigation }) => {
 
   const crearUsuario = async () => {
     try {
-        const usuarioExistente = await verificarUsuarioExistente(userRegistro.email);
-        if (usuarioExistente) {
-          console.log("INGRESO INCORRECTO")
-            showMessage({
-                message: 'Usuario ya registrado',
-                description: 'El email ingresado ya está en uso.',
-                type: 'danger', // Tipo de mensaje: "success", "info", "warning", "danger"
-            });
-            return; // Salir de la función si el usuario ya existe
-        }
-       
-        await create(userRegistro.email, userRegistro.password);
-        await login(userRegistro.email, userRegistro.password, setUsuarioOn);
-        console.log("INGRESO CORRECTO")
-
-        let userColecction = collection(db, "usuarios");
-        await addDoc(userColecction, userRegistro);
-
+      const usuarioExistente = await verificarUsuarioExistente(userRegistro.email);
+      if (usuarioExistente) {
+        console.log("INGRESO INCORRECTO")
         showMessage({
-            message: 'Registro exitoso',
-            description: '¡Usuario creado correctamente!',
-            type: 'success',
+          message: 'Usuario ya registrado',
+          description: 'El email ingresado ya está en uso.',
+          type: 'danger', // Tipo de mensaje: "success", "info", "warning", "danger"
         });
+        return; // Salir de la función si el usuario ya existe
+      }
+      await create(userRegistro.email, userRegistro.password);
+      setUserOnline({email: userRegistro.email})
+      await login(userRegistro.email, userRegistro.password, setUsuarioOn);
+      console.log("INGRESO CORRECTO");
+
+      let userColecction = collection(db, "usuarios");
+      await addDoc(userColecction, userRegistro);
+
+      showMessage({
+        message: 'Registro exitoso',
+        description: '¡Usuario creado correctamente!',
+        type: 'success',
+      });
 
     } catch (error) {
-        showMessage({
-            message: 'Error en el registro',
-            description: error.message || 'Algo salió mal. Inténtalo de nuevo.',
-            type: 'danger',
-        });
+      showMessage({
+        message: 'Error en el registro',
+        description: error.message || 'Algo salió mal. Inténtalo de nuevo.',
+        type: 'danger',
+      });
     }
-};
+  };
 
   let openImagePicker = async () => {
     let resultadoPermisos = await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -86,13 +86,18 @@ const Registro = ({ navigation }) => {
   }
 
   const EnviarRegistroUsuario = async (values) => {
-    await setUserRegistro({
-      ...userRegistro,
+    // Actualizar el estado de userRegistro antes de crear el usuario
+    setUserRegistro(prevState => ({
+      ...prevState,
       email: values.email,
       password: values.password,
-    });
-    await crearUsuario(userRegistro.email, userRegistro.password);
+    }));
+
+    // Crear usuario con los datos actualizados
+    await crearUsuario();
   };
+
+  console.log(userRegistro)
 
   return (
     <View style={styles.container__inicioSesion}>
@@ -104,7 +109,13 @@ const Registro = ({ navigation }) => {
         {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
           <View style={styles.container__form}>
             <TextInput
-              onChangeText={handleChange('email')}
+              onChangeText={(text) => {
+                handleChange('email')(text); // Actualiza Formik
+                setUserRegistro(prevState => ({
+                  ...prevState,
+                  email: text, // Actualiza userRegistro con el nuevo email
+                }));
+              }}
               onBlur={handleBlur('email')}
               value={values.email}
               style={styles.input}
@@ -116,7 +127,13 @@ const Registro = ({ navigation }) => {
             )}
 
             <TextInput
-              onChangeText={handleChange('password')}
+              onChangeText={(text) => {
+                handleChange('password')(text); // Actualiza Formik
+                setUserRegistro(prevState => ({
+                  ...prevState,
+                  password: text, // Actualiza userRegistro con el nuevo password
+                }));
+              }}
               onBlur={handleBlur('password')}
               value={values.password}
               style={styles.input}

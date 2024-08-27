@@ -16,6 +16,7 @@ import { CartContext } from "./Context/Context";
 import { showMessage } from "react-native-flash-message";
 
 
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -36,12 +37,10 @@ export const db = getFirestore(app); //REFERENCIA A LA BASE DE DATOS
 const analytics = getAnalytics(app);
 export const auth = getAuth(app);
 
+const { setUsuarioOn,userOnline, setUserOnline  } = useContext(CartContext);
 
-export const login = async ( email, password, setUsuarioOn ) => {
-  try{
-    let res = await signInWithEmailAndPassword(auth, email, password);
-     setUsuarioOn(true)
-    
+
+
 const BotonLoginUsuario = ( {navigation} ) => {
   const test = (niveles) => {
       //AÑADIMOS EL DOCUMENTO A UNA COLECCION, ESPECIFICO LA BASE DE DATOS Y EL NOMBRE DE LA COLLECCION, LUEGO EL OBJETO QUE QUIERO AGREGAR A ESA COLECCION.
@@ -50,6 +49,13 @@ const BotonLoginUsuario = ( {navigation} ) => {
       ))
 }
 }
+export const login = async ( email, password, setUsuarioOn ) => {
+  try{
+    let res = await signInWithEmailAndPassword(auth, email, password);
+     setUsuarioOn(true) 
+     setUserOnline({nombre:"anda"})
+ 
+
   }
   catch(error){
     showMessage({

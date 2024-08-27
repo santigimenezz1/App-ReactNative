@@ -7,7 +7,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 const InicioSesion = () => {
-  const { setUsuarioOn } = useContext(CartContext);
+  const { setUsuarioOn,userOnline, setUserOnline  } = useContext(CartContext);
 
   // Esquema de validación usando Yup
   const validationSchema = Yup.object().shape({
@@ -15,12 +15,14 @@ const InicioSesion = () => {
     password: Yup.string().min(6, 'La contraseña debe tener al menos 6 caracteres').required('La contraseña es obligatoria'),
   });
 
+  console.log(setUsuarioOn)
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
       validationSchema={validationSchema}
       onSubmit={(values) => {
         login(values.email, values.password, setUsuarioOn);
+        setUserOnline({email: values.email})
       }}
       validateOnBlur={false}    // Desactiva la validación al desenfocar el campo
       validateOnChange={false}  // Desactiva la validación al cambiar el campo
