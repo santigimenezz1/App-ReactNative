@@ -19,21 +19,7 @@ const CargarImagen = ({navigation}) => {
             let userColecction = collection(db, "usuarios")
             addDoc(userColecction, userRegistro)
     }
-   let openImagePicker = async () => {
-   let resultadoPermisos = true
-   if(resultadoPermisos.granted === false) {
-    alert("permisos necesarios para acceder a la camara")
-    return
-   } else{
-    let abrirGaleria = await ImagePicker.launchImageLibraryAsync()
-    if(abrirGaleria.canceled === true){
-        return;
-    } else{
-        let uri = abrirGaleria.assets[0].uri
-        setImagen(uri) 
-    }
-   }
-    }
+   
  return (
     <View style={styles.container__cargarImagen}>
         <View style={styles.container__imagen}>

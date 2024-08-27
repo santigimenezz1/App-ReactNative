@@ -13,6 +13,7 @@ import {
 } from "firebase/auth";
 import { useContext } from "react";
 import { CartContext } from "./Context/Context";
+import { showMessage } from "react-native-flash-message";
 
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -39,7 +40,7 @@ export const auth = getAuth(app);
 export const login = async ( email, password, setUsuarioOn ) => {
   try{
     let res = await signInWithEmailAndPassword(auth, email, password);
-    setUsuarioOn(true)
+     setUsuarioOn(true)
     
 const BotonLoginUsuario = ( {navigation} ) => {
   const test = (niveles) => {
@@ -51,8 +52,11 @@ const BotonLoginUsuario = ( {navigation} ) => {
 }
   }
   catch(error){
-    alert(error)
-  }
+    showMessage({
+      message: 'Usuario incorrecto',
+      description: 'El usuario es incorrecto',
+      type: 'danger', // Tipo de mensaje: "success", "info", "warning", "danger"
+  });  }
 };
 
 export const create = async (email, password) => {

@@ -11,6 +11,8 @@ import { Octicons } from '@expo/vector-icons';
 import { Text } from 'react-native';
 import LoginUsuarioNavigator from './pages/LoginUsuarios/LoginUsuariosNavigator.js';
 import GlobalContext, { CartContext } from './Context/Context.jsx';
+import FlashMessage from 'react-native-flash-message';
+import { View } from 'react-native-web';
 
 const Tab = createBottomTabNavigator();
 
@@ -74,6 +76,7 @@ export default function App() {
     <GlobalContext>
       <NavigationContainer>
         <MainComponent />
+        <FlashMessage position="center" />
       </NavigationContainer>
     </GlobalContext>
   );

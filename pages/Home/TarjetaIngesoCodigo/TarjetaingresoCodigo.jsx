@@ -3,6 +3,7 @@ import { TextInput } from "react-native-gesture-handler"
 import styles from "./TarjetaIngresoCodigoStyles"
 import { useContext, useState } from "react"
 import { CartContext } from "../../../Context/Context"
+import { showMessage } from "react-native-flash-message"
 
 const TarjetaIngresoCodigo = ( {CerrarModal, codigoCorrecto, setCodigoCorrecto} ) => {
     const {closed, setClosed, userRegistro} = useContext(CartContext)
@@ -16,9 +17,12 @@ const TarjetaIngresoCodigo = ( {CerrarModal, codigoCorrecto, setCodigoCorrecto} 
    const validacionCodigo = () => {
      if(text === userRegistro.codigoAcceso) {
         setClosed(true)
-        console.log(closed)
         CerrarModal()
-
+        showMessage({
+            message: 'Bienvenido a FITTLLINE',
+            description: 'LLEVA TU HABILIDAD AL EXTREMO',
+            type: 'success',
+        });
      }else{
         setClosed(false)
         setCodigoCorrecto(true)
